@@ -18,7 +18,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div 
+          <div
             className="flex items-center cursor-pointer group"
             onClick={() => onNavigate('home')}
           >
@@ -35,8 +35,8 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
             <button
               onClick={() => onNavigate('home')}
               className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
-                currentPage === 'home' 
-                  ? 'text-cyberpunk-accent-cyan bg-cyberpunk-accent-cyan/10 text-shadow-cyberpunk' 
+                currentPage === 'home'
+                  ? 'text-cyberpunk-accent-cyan bg-cyberpunk-accent-cyan/10 text-shadow-cyberpunk'
                   : 'text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan'
               }`}
             >
@@ -45,8 +45,8 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
             <button
               onClick={() => onNavigate('products')}
               className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
-                currentPage === 'products' 
-                  ? 'text-cyberpunk-accent-cyan bg-cyberpunk-accent-cyan/10 text-shadow-cyberpunk' 
+                currentPage === 'products'
+                  ? 'text-cyberpunk-accent-cyan bg-cyberpunk-accent-cyan/10 text-shadow-cyberpunk'
                   : 'text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan'
               }`}
             >
@@ -56,7 +56,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
               onClick={() => onNavigate('blog')}
               className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                 currentPage === 'blog' || currentPage === 'blog-post'
-                  ? 'text-cyberpunk-accent-cyan bg-cyberpunk-accent-cyan/10 text-shadow-cyberpunk' 
+                  ? 'text-cyberpunk-accent-cyan bg-cyberpunk-accent-cyan/10 text-shadow-cyberpunk'
                   : 'text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan'
               }`}
             >
@@ -78,7 +78,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
             </button>
 
             {/* Cart */}
-            <button 
+            <button
               onClick={() => onNavigate('cart')}
               className="relative p-2 text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan hover:bg-cyberpunk-accent-cyan/10 rounded-lg transition-colors"
             >
@@ -92,7 +92,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
 
             {/* User Account */}
             {isAuthenticated ? (
-              <button 
+              <button
                 onClick={() => onNavigate('account')}
                 className="relative p-2 text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan hover:bg-cyberpunk-accent-cyan/10 rounded-lg transition-colors"
               >
@@ -103,7 +103,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
                 )}
               </button>
             ) : (
-              <button 
+              <button
                 onClick={() => onNavigate('login')}
                 className="btn-cyberpunk-outline"
               >

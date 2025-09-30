@@ -71,12 +71,12 @@ const Login: React.FC<LoginProps> = ({ onNavigate }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-cyberpunk-primary-bg flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         {/* Back Button */}
         <button
           onClick={() => onNavigate('home')}
-          className="flex items-center text-gray-300 hover:text-white transition-colors"
+          className="flex items-center text-cyberpunk-text-secondary hover:text-white transition-colors"
         >
           <ArrowLeft className="w-5 h-5 mr-2" />
           Kembali ke Home
@@ -92,7 +92,7 @@ const Login: React.FC<LoginProps> = ({ onNavigate }) => {
           <h2 className="text-3xl font-bold text-white">
             {isLoginMode ? 'Masuk ke Akun' : 'Buat Akun Baru'}
           </h2>
-          <p className="mt-2 text-gray-400">
+          <p className="mt-2 text-cyberpunk-text-secondary">
             {isLoginMode 
               ? 'Akses produk digital dan riwayat pembelian Anda'
               : 'Bergabung dengan komunitas MeowLabs sekarang'
@@ -101,7 +101,7 @@ const Login: React.FC<LoginProps> = ({ onNavigate }) => {
         </div>
 
         {/* Form */}
-        <div className="bg-gradient-to-b from-gray-800/50 to-gray-900/50 rounded-2xl p-8 border border-gray-700/50">
+        <div className="bg-gradient-to-b from-cyberpunk-secondary-bg/60 to-cyberpunk-primary-bg/60 rounded-2xl p-8 border border-cyberpunk-accent-cyan/20">
           <form onSubmit={handleSubmit} className="space-y-6">
             {errors.general && (
               <div className="bg-red-500/10 border border-red-500/30 text-red-400 px-4 py-3 rounded-xl text-sm">
@@ -111,17 +111,17 @@ const Login: React.FC<LoginProps> = ({ onNavigate }) => {
 
             {!isLoginMode && (
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-cyberpunk-text-secondary mb-2">
                   Nama Lengkap
                 </label>
                 <input
                   type="text"
                   value={formData.name}
                   onChange={(e) => handleInputChange('name', e.target.value)}
-                  className={`w-full px-4 py-3 border rounded-xl bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition-colors ${
+                  className={`w-full px-4 py-3 border rounded-xl bg-cyberpunk-secondary-bg text-white placeholder-cyberpunk-text-secondary/70 focus:outline-none focus:ring-2 transition-colors ${
                     errors.name 
                       ? 'border-red-500 focus:ring-red-500' 
-                      : 'border-gray-600 focus:ring-purple-500'
+                      : 'border-cyberpunk-accent-cyan/30 focus:ring-purple-500'
                   }`}
                   placeholder="Masukkan nama lengkap"
                 />
@@ -132,21 +132,21 @@ const Login: React.FC<LoginProps> = ({ onNavigate }) => {
             )}
 
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-cyberpunk-text-secondary mb-2">
                 Email
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Mail className="h-5 w-5 text-gray-400" />
+                  <Mail className="h-5 w-5 text-cyberpunk-text-secondary" />
                 </div>
                 <input
                   type="email"
                   value={formData.email}
                   onChange={(e) => handleInputChange('email', e.target.value)}
-                  className={`w-full pl-10 pr-4 py-3 border rounded-xl bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition-colors ${
+                  className={`w-full pl-10 pr-4 py-3 border rounded-xl bg-cyberpunk-secondary-bg text-white placeholder-cyberpunk-text-secondary/70 focus:outline-none focus:ring-2 transition-colors ${
                     errors.email 
                       ? 'border-red-500 focus:ring-red-500' 
-                      : 'border-gray-600 focus:ring-purple-500'
+                      : 'border-cyberpunk-accent-cyan/30 focus:ring-purple-500'
                   }`}
                   placeholder="email@example.com"
                 />
@@ -157,21 +157,21 @@ const Login: React.FC<LoginProps> = ({ onNavigate }) => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-cyberpunk-text-secondary mb-2">
                 Password
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Lock className="h-5 w-5 text-gray-400" />
+                  <Lock className="h-5 w-5 text-cyberpunk-text-secondary" />
                 </div>
                 <input
                   type={showPassword ? 'text' : 'password'}
                   value={formData.password}
                   onChange={(e) => handleInputChange('password', e.target.value)}
-                  className={`w-full pl-10 pr-12 py-3 border rounded-xl bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition-colors ${
+                  className={`w-full pl-10 pr-12 py-3 border rounded-xl bg-cyberpunk-secondary-bg text-white placeholder-cyberpunk-text-secondary/70 focus:outline-none focus:ring-2 transition-colors ${
                     errors.password 
                       ? 'border-red-500 focus:ring-red-500' 
-                      : 'border-gray-600 focus:ring-purple-500'
+                      : 'border-cyberpunk-accent-cyan/30 focus:ring-purple-500'
                   }`}
                   placeholder="Masukkan password"
                 />
@@ -181,9 +181,9 @@ const Login: React.FC<LoginProps> = ({ onNavigate }) => {
                   className="absolute inset-y-0 right-0 pr-3 flex items-center"
                 >
                   {showPassword ? (
-                    <EyeOff className="h-5 w-5 text-gray-400 hover:text-gray-300" />
+                    <EyeOff className="h-5 w-5 text-cyberpunk-text-secondary hover:text-cyberpunk-text-secondary" />
                   ) : (
-                    <Eye className="h-5 w-5 text-gray-400 hover:text-gray-300" />
+                    <Eye className="h-5 w-5 text-cyberpunk-text-secondary hover:text-cyberpunk-text-secondary" />
                   )}
                 </button>
               </div>
@@ -194,21 +194,21 @@ const Login: React.FC<LoginProps> = ({ onNavigate }) => {
 
             {!isLoginMode && (
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-cyberpunk-text-secondary mb-2">
                   Konfirmasi Password
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <Lock className="h-5 w-5 text-gray-400" />
+                    <Lock className="h-5 w-5 text-cyberpunk-text-secondary" />
                   </div>
                   <input
                     type="password"
                     value={formData.confirmPassword}
                     onChange={(e) => handleInputChange('confirmPassword', e.target.value)}
-                    className={`w-full pl-10 pr-4 py-3 border rounded-xl bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition-colors ${
+                    className={`w-full pl-10 pr-4 py-3 border rounded-xl bg-cyberpunk-secondary-bg text-white placeholder-cyberpunk-text-secondary/70 focus:outline-none focus:ring-2 transition-colors ${
                       errors.confirmPassword 
                         ? 'border-red-500 focus:ring-red-500' 
-                        : 'border-gray-600 focus:ring-purple-500'
+                        : 'border-cyberpunk-accent-cyan/30 focus:ring-purple-500'
                     }`}
                     placeholder="Konfirmasi password"
                   />
@@ -237,7 +237,7 @@ const Login: React.FC<LoginProps> = ({ onNavigate }) => {
 
           {/* Toggle Mode */}
           <div className="mt-6 text-center">
-            <p className="text-gray-400">
+            <p className="text-cyberpunk-text-secondary">
               {isLoginMode ? 'Belum punya akun?' : 'Sudah punya akun?'}
               <button
                 onClick={() => {
@@ -256,15 +256,15 @@ const Login: React.FC<LoginProps> = ({ onNavigate }) => {
           <div className="mt-6">
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-700" />
+                <div className="w-full border-t border-cyberpunk-accent-cyan/25" />
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-gray-800 text-gray-400">Atau</span>
+                <span className="px-2 bg-cyberpunk-secondary-bg text-cyberpunk-text-secondary">Atau</span>
               </div>
             </div>
 
             <div className="mt-6 grid grid-cols-2 gap-3">
-              <button className="w-full inline-flex justify-center py-3 px-4 border border-gray-600 rounded-xl bg-gray-800 text-sm font-medium text-gray-300 hover:bg-gray-700 transition-colors">
+              <button className="w-full inline-flex justify-center py-3 px-4 border border-cyberpunk-accent-cyan/30 rounded-xl bg-cyberpunk-secondary-bg text-sm font-medium text-cyberpunk-text-secondary hover:bg-cyberpunk-secondary-bg/80 transition-colors">
                 <svg className="w-5 h-5" viewBox="0 0 24 24">
                   <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
                   <path fill="currentColor" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -274,7 +274,7 @@ const Login: React.FC<LoginProps> = ({ onNavigate }) => {
                 <span className="ml-2">Google</span>
               </button>
 
-              <button className="w-full inline-flex justify-center py-3 px-4 border border-gray-600 rounded-xl bg-gray-800 text-sm font-medium text-gray-300 hover:bg-gray-700 transition-colors">
+              <button className="w-full inline-flex justify-center py-3 px-4 border border-cyberpunk-accent-cyan/30 rounded-xl bg-cyberpunk-secondary-bg text-sm font-medium text-cyberpunk-text-secondary hover:bg-cyberpunk-secondary-bg/80 transition-colors">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                 </svg>
@@ -285,7 +285,7 @@ const Login: React.FC<LoginProps> = ({ onNavigate }) => {
         </div>
 
         {/* Terms */}
-        <p className="text-center text-xs text-gray-400">
+        <p className="text-center text-xs text-cyberpunk-text-secondary">
           Dengan {isLoginMode ? 'masuk' : 'mendaftar'}, Anda menyetujui{' '}
           <a href="#" className="text-purple-400 hover:text-purple-300">
             Syarat & Ketentuan

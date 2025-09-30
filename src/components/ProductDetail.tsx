@@ -47,12 +47,12 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBackToProducts
   ];
 
   return (
-    <div className="min-h-screen bg-gray-900 py-8">
+    <div className="min-h-screen bg-cyberpunk-primary-bg py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Back Button */}
         <button
           onClick={onBackToProducts}
-          className="flex items-center text-gray-300 hover:text-white mb-8 transition-colors"
+          className="flex items-center text-cyberpunk-text-secondary hover:text-white mb-8 transition-colors"
         >
           <ArrowLeft className="w-5 h-5 mr-2" />
           Kembali ke Produk
@@ -62,7 +62,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBackToProducts
           {/* Product Images */}
           <div className="space-y-4">
             {/* Main Image */}
-            <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900">
+            <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-cyberpunk-secondary-bg to-cyberpunk-primary-bg">
               <img
                 src={selectedImage}
                 alt={product.title}
@@ -77,7 +77,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBackToProducts
                   key={index}
                   onClick={() => setSelectedImage(image)}
                   className={`w-20 h-20 rounded-lg overflow-hidden border-2 transition-colors ${
-                    selectedImage === image ? 'border-purple-500' : 'border-gray-600 hover:border-gray-500'
+                    selectedImage === image ? 'border-purple-500' : 'border-cyberpunk-accent-cyan/30 hover:border-cyberpunk-accent-cyan/60'
                   }`}
                 >
                   <img
@@ -123,7 +123,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBackToProducts
                   <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                 ))}
               </div>
-              <span className="text-gray-300">(4.8) • 234 reviews</span>
+              <span className="text-cyberpunk-text-secondary">(4.8) • 234 reviews</span>
             </div>
 
             {/* Price */}
@@ -132,7 +132,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBackToProducts
             </div>
 
             {/* Description */}
-            <div className="text-gray-300 leading-relaxed">
+            <div className="text-cyberpunk-text-secondary leading-relaxed">
               <p className="mb-4">{product.description}</p>
               <p>
                 Produk ini telah terbukti membantu ribuan developer dan pebisnis dalam mencapai tujuan mereka. 
@@ -146,7 +146,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBackToProducts
               <h3 className="text-lg font-semibold text-white mb-3">Yang Anda Dapatkan:</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {product.features.map((feature, index) => (
-                  <div key={index} className="flex items-center text-gray-300">
+                  <div key={index} className="flex items-center text-cyberpunk-text-secondary">
                     <Check className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
                     {feature}
                   </div>
@@ -162,7 +162,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBackToProducts
                 {/* Size Selection */}
                 {product.printOnDemand.sizes.length > 0 && (
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">Ukuran</label>
+                    <label className="block text-sm font-medium text-cyberpunk-text-secondary mb-2">Ukuran</label>
                     <div className="flex flex-wrap gap-2">
                       {product.printOnDemand.sizes.map(size => (
                         <button
@@ -171,7 +171,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBackToProducts
                           className={`px-4 py-2 border rounded-lg transition-colors ${
                             selectedOptions.size === size
                               ? 'border-purple-500 bg-purple-500/20 text-purple-400'
-                              : 'border-gray-600 text-gray-300 hover:border-gray-500'
+                              : 'border-cyberpunk-accent-cyan/30 text-cyberpunk-text-secondary hover:border-cyberpunk-accent-cyan/60'
                           }`}
                         >
                           {size}
@@ -184,7 +184,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBackToProducts
                 {/* Color Selection */}
                 {product.printOnDemand.colors.length > 0 && (
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">Warna</label>
+                    <label className="block text-sm font-medium text-cyberpunk-text-secondary mb-2">Warna</label>
                     <div className="flex flex-wrap gap-2">
                       {product.printOnDemand.colors.map(color => (
                         <button
@@ -193,7 +193,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBackToProducts
                           className={`px-4 py-2 border rounded-lg transition-colors ${
                             selectedOptions.color === color
                               ? 'border-purple-500 bg-purple-500/20 text-purple-400'
-                              : 'border-gray-600 text-gray-300 hover:border-gray-500'
+                              : 'border-cyberpunk-accent-cyan/30 text-cyberpunk-text-secondary hover:border-cyberpunk-accent-cyan/60'
                           }`}
                         >
                           {color}
@@ -206,7 +206,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBackToProducts
                 {/* Material Selection */}
                 {product.printOnDemand.materials.length > 0 && (
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">Material</label>
+                    <label className="block text-sm font-medium text-cyberpunk-text-secondary mb-2">Material</label>
                     <div className="flex flex-wrap gap-2">
                       {product.printOnDemand.materials.map(material => (
                         <button
@@ -215,7 +215,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBackToProducts
                           className={`px-4 py-2 border rounded-lg transition-colors ${
                             selectedOptions.material === material
                               ? 'border-purple-500 bg-purple-500/20 text-purple-400'
-                              : 'border-gray-600 text-gray-300 hover:border-gray-500'
+                              : 'border-cyberpunk-accent-cyan/30 text-cyberpunk-text-secondary hover:border-cyberpunk-accent-cyan/60'
                           }`}
                         >
                           {material}
@@ -229,18 +229,18 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBackToProducts
 
             {/* Guarantees */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="flex items-center p-4 bg-gray-800/50 rounded-xl border border-gray-700/50">
+              <div className="flex items-center p-4 bg-cyberpunk-secondary-bg/50 rounded-xl border border-cyberpunk-accent-cyan/20">
                 <Shield className="w-6 h-6 text-blue-400 mr-3" />
                 <div>
                   <div className="text-white font-medium">Garansi 30 Hari</div>
-                  <div className="text-gray-400 text-sm">Uang kembali jika tidak puas</div>
+                  <div className="text-cyberpunk-text-secondary text-sm">Uang kembali jika tidak puas</div>
                 </div>
               </div>
-              <div className="flex items-center p-4 bg-gray-800/50 rounded-xl border border-gray-700/50">
+              <div className="flex items-center p-4 bg-cyberpunk-secondary-bg/50 rounded-xl border border-cyberpunk-accent-cyan/20">
                 <Zap className="w-6 h-6 text-purple-400 mr-3" />
                 <div>
                   <div className="text-white font-medium">Akses Selamanya</div>
-                  <div className="text-gray-400 text-sm">Download kapan saja</div>
+                  <div className="text-cyberpunk-text-secondary text-sm">Download kapan saja</div>
                 </div>
               </div>
             </div>
@@ -255,14 +255,14 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBackToProducts
                 Tambah ke Keranjang
               </button>
               
-              <button className="w-full px-8 py-4 border border-gray-600 text-gray-300 font-semibold rounded-xl hover:bg-gray-800 hover:border-gray-500 transition-colors">
+              <button className="w-full px-8 py-4 border border-cyberpunk-accent-cyan/30 text-cyberpunk-text-secondary font-semibold rounded-xl hover:bg-cyberpunk-secondary-bg hover:border-cyberpunk-accent-cyan/60 transition-colors">
                 Beli Sekarang
               </button>
             </div>
 
             {/* Trust Indicators */}
-            <div className="pt-6 border-t border-gray-700">
-              <div className="flex items-center justify-between text-sm text-gray-400">
+            <div className="pt-6 border-t border-cyberpunk-accent-cyan/25">
+              <div className="flex items-center justify-between text-sm text-cyberpunk-text-secondary">
                 <span>✓ Checkout aman dengan SSL</span>
                 <span>✓ Support 24/7</span>
                 <span>✓ Update gratis</span>

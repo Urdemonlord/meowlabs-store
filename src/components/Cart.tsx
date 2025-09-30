@@ -19,14 +19,14 @@ const Cart: React.FC<CartProps> = ({ onCheckout }) => {
 
   if (items.length === 0) {
     return (
-      <div className="min-h-screen bg-gray-900 py-16">
+      <div className="min-h-screen bg-cyberpunk-primary-bg py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center py-16">
-            <div className="w-24 h-24 mx-auto mb-8 bg-gray-800 rounded-full flex items-center justify-center">
-              <ShoppingCart className="w-12 h-12 text-gray-400" />
+            <div className="w-24 h-24 mx-auto mb-8 bg-cyberpunk-secondary-bg rounded-full flex items-center justify-center">
+              <ShoppingCart className="w-12 h-12 text-cyberpunk-text-secondary" />
             </div>
             <h2 className="text-3xl font-bold text-white mb-4">Keranjang Kosong</h2>
-            <p className="text-gray-400 mb-8">Belum ada produk yang ditambahkan ke keranjang</p>
+            <p className="text-cyberpunk-text-secondary mb-8">Belum ada produk yang ditambahkan ke keranjang</p>
             <button className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-xl hover:from-purple-600 hover:to-blue-600 transition-colors">
               Mulai Belanja
             </button>
@@ -37,12 +37,12 @@ const Cart: React.FC<CartProps> = ({ onCheckout }) => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900 py-16">
+    <div className="min-h-screen bg-cyberpunk-primary-bg py-16">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-white">Keranjang Belanja</h1>
-          <p className="text-gray-400 mt-2">{items.length} item dalam keranjang</p>
+          <p className="text-cyberpunk-text-secondary mt-2">{items.length} item dalam keranjang</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -51,7 +51,7 @@ const Cart: React.FC<CartProps> = ({ onCheckout }) => {
             {items.map(item => (
               <div
                 key={item.product.id}
-                className="bg-gradient-to-r from-gray-800/50 to-gray-900/50 rounded-2xl p-6 border border-gray-700/50"
+                className="bg-gradient-to-r from-cyberpunk-secondary-bg/60 to-cyberpunk-primary-bg/60 rounded-2xl p-6 border border-cyberpunk-accent-cyan/20"
               >
                 <div className="flex items-center space-x-4">
                   {/* Product Image */}
@@ -68,23 +68,23 @@ const Cart: React.FC<CartProps> = ({ onCheckout }) => {
                     <h3 className="text-lg font-semibold text-white truncate">
                       {item.product.title}
                     </h3>
-                    <p className="text-gray-400 text-sm mt-1 line-clamp-2">
+                    <p className="text-cyberpunk-text-secondary text-sm mt-1 line-clamp-2">
                       {item.product.description}
                     </p>
                     {item.selectedOptions && (
                       <div className="flex flex-wrap gap-2 mt-2">
                         {item.selectedOptions.size && (
-                          <span className="px-2 py-1 bg-gray-700/50 text-gray-300 rounded text-xs">
+                          <span className="px-2 py-1 bg-cyberpunk-secondary-bg/50 text-cyberpunk-text-secondary rounded text-xs">
                             Size: {item.selectedOptions.size}
                           </span>
                         )}
                         {item.selectedOptions.color && (
-                          <span className="px-2 py-1 bg-gray-700/50 text-gray-300 rounded text-xs">
+                          <span className="px-2 py-1 bg-cyberpunk-secondary-bg/50 text-cyberpunk-text-secondary rounded text-xs">
                             Color: {item.selectedOptions.color}
                           </span>
                         )}
                         {item.selectedOptions.material && (
-                          <span className="px-2 py-1 bg-gray-700/50 text-gray-300 rounded text-xs">
+                          <span className="px-2 py-1 bg-cyberpunk-secondary-bg/50 text-cyberpunk-text-secondary rounded text-xs">
                             Material: {item.selectedOptions.material}
                           </span>
                         )}
@@ -99,15 +99,15 @@ const Cart: React.FC<CartProps> = ({ onCheckout }) => {
                   <div className="flex flex-col items-end space-y-3">
                     <button
                       onClick={() => removeFromCart(item.product.id)}
-                      className="text-gray-400 hover:text-red-400 transition-colors"
+                      className="text-cyberpunk-text-secondary hover:text-red-400 transition-colors"
                     >
                       <Trash2 className="w-5 h-5" />
                     </button>
                     
-                    <div className="flex items-center space-x-2 bg-gray-700/50 rounded-lg p-1">
+                    <div className="flex items-center space-x-2 bg-cyberpunk-secondary-bg/50 rounded-lg p-1">
                       <button
                         onClick={() => updateQuantity(item.product.id, item.quantity - 1)}
-                        className="p-1 hover:bg-gray-600 rounded"
+                        className="p-1 hover:bg-cyberpunk-secondary-bg/70 rounded"
                       >
                         <Minus className="w-4 h-4 text-white" />
                       </button>
@@ -116,7 +116,7 @@ const Cart: React.FC<CartProps> = ({ onCheckout }) => {
                       </span>
                       <button
                         onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
-                        className="p-1 hover:bg-gray-600 rounded"
+                        className="p-1 hover:bg-cyberpunk-secondary-bg/70 rounded"
                       >
                         <Plus className="w-4 h-4 text-white" />
                       </button>
@@ -129,13 +129,13 @@ const Cart: React.FC<CartProps> = ({ onCheckout }) => {
 
           {/* Order Summary */}
           <div className="lg:col-span-1">
-            <div className="bg-gradient-to-b from-gray-800/50 to-gray-900/50 rounded-2xl p-6 border border-gray-700/50 sticky top-8">
+            <div className="bg-gradient-to-b from-cyberpunk-secondary-bg/60 to-cyberpunk-primary-bg/60 rounded-2xl p-6 border border-cyberpunk-accent-cyan/20 sticky top-8">
               <h3 className="text-xl font-semibold text-white mb-6">Ringkasan Pesanan</h3>
               
               <div className="space-y-4 mb-6">
                 {items.map(item => (
                   <div key={item.product.id} className="flex justify-between text-sm">
-                    <span className="text-gray-300 truncate pr-2">
+                    <span className="text-cyberpunk-text-secondary truncate pr-2">
                       {item.product.title} × {item.quantity}
                     </span>
                     <span className="text-white font-medium">
@@ -145,7 +145,7 @@ const Cart: React.FC<CartProps> = ({ onCheckout }) => {
                 ))}
               </div>
 
-              <div className="border-t border-gray-700 pt-4 mb-6">
+              <div className="border-t border-cyberpunk-accent-cyan/25 pt-4 mb-6">
                 <div className="flex justify-between items-center">
                   <span className="text-lg font-semibold text-white">Total</span>
                   <span className="text-2xl font-bold text-purple-400">
@@ -164,7 +164,7 @@ const Cart: React.FC<CartProps> = ({ onCheckout }) => {
 
               {/* Trust Indicators */}
               <div className="mt-6 text-center">
-                <div className="text-sm text-gray-400 space-y-1">
+                <div className="text-sm text-cyberpunk-text-secondary space-y-1">
                   <div>✓ Pembayaran aman & terenkripsi</div>
                   <div>✓ Download instan setelah pembayaran</div>
                   <div>✓ Garansi uang kembali 30 hari</div>
