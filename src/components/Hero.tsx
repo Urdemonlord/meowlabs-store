@@ -9,18 +9,18 @@ const Hero: React.FC<HeroProps> = ({ onShopNow }) => {
   return (
     <section className="relative overflow-hidden">
       {/* === Gradient & Background Effects === */}
-      <div className="absolute inset-0 bg-cyberpunk-gradient-bg" />
-      <div className="absolute inset-0 flex justify-end">
+      <div className="pointer-events-none absolute inset-0 bg-cyberpunk-gradient-bg z-0" />
+      <div className="pointer-events-none absolute inset-0 flex justify-end z-0">
         <div
           className="hidden md:block w-1/2 h-full bg-cyberpunk-card/60"
           style={{ backgroundImage: "var(--cyberpunk-grid)", backgroundSize: "32px 32px" }}
         />
       </div>
-      <div className="absolute -top-20 -left-20 w-80 h-80 bg-cyberpunk-accent-pink/20 blur-3xl rounded-full" />
-      <div className="absolute top-1/3 right-1/3 w-64 h-64 bg-cyberpunk-accent-cyan/25 blur-3xl rounded-full" />
+      <div className="pointer-events-none absolute -top-20 -left-20 w-80 h-80 bg-cyberpunk-accent-pink/20 blur-3xl rounded-full z-0" />
+      <div className="pointer-events-none absolute top-1/3 right-1/3 w-64 h-64 bg-cyberpunk-accent-cyan/25 blur-3xl rounded-full z-0" />
 
       {/* === Content Container === */}
-      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
         <div className="flex flex-col items-center text-center gap-12">
            {/* Badge with Logo */}
            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-cyberpunk-secondary-bg/70 border border-cyberpunk-accent-cyan/30 text-cyberpunk-accent-cyan shadow-cyberpunk">
