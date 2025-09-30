@@ -14,7 +14,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
   const cartItemsCount = items.reduce((total, item) => total + item.quantity, 0);
 
   return (
-    <header className="sticky top-0 z-50 bg-cyberpunk-primary-bg/95 backdrop-blur-sm border-b border-cyberpunk-accent-cyan/30">
+    <header className="sticky top-0 z-50 bg-cyberpunk-primary-bg/95 backdrop-blur-sm border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -22,8 +22,8 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
             className="flex items-center cursor-pointer group"
             onClick={() => onNavigate('home')}
           >
-            <div className="w-8 h-8 bg-cyberpunk-gradient-cyan rounded-lg flex items-center justify-center mr-3 group-hover:scale-110 transition-transform animate-cyberpunk-glow-pulse">
-              <span className="text-cyberpunk-primary-bg font-bold text-sm">ML</span>
+            <div className="w-8 h-8 bg-gradient-to-br from-cyberpunk-accent-pink to-cyberpunk-accent-cyan rounded-lg flex items-center justify-center mr-3 group-hover:scale-110 transition-transform shadow-cyberpunk">
+              <span className="text-white font-bold text-sm">ML</span>
             </div>
             <span className="text-xl font-bold text-cyberpunk-gradient-cyan text-shadow-cyberpunk">
               MeowLabs.store
@@ -36,8 +36,8 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
               onClick={() => onNavigate('home')}
               className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                 currentPage === 'home'
-                  ? 'text-cyberpunk-accent-cyan bg-cyberpunk-accent-cyan/10 text-shadow-cyberpunk'
-                  : 'text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan'
+                  ? 'text-white bg-white/10 text-shadow-cyberpunk'
+                  : 'text-cyberpunk-text-secondary hover:text-white'
               }`}
             >
               Home
@@ -46,8 +46,8 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
               onClick={() => onNavigate('products')}
               className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                 currentPage === 'products'
-                  ? 'text-cyberpunk-accent-cyan bg-cyberpunk-accent-cyan/10 text-shadow-cyberpunk'
-                  : 'text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan'
+                  ? 'text-white bg-white/10 text-shadow-cyberpunk'
+                  : 'text-cyberpunk-text-secondary hover:text-white'
               }`}
             >
               Produk
@@ -56,16 +56,16 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
               onClick={() => onNavigate('blog')}
               className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                 currentPage === 'blog' || currentPage === 'blog-post'
-                  ? 'text-cyberpunk-accent-cyan bg-cyberpunk-accent-cyan/10 text-shadow-cyberpunk'
-                  : 'text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan'
+                  ? 'text-white bg-white/10 text-shadow-cyberpunk'
+                  : 'text-cyberpunk-text-secondary hover:text-white'
               }`}
             >
               Blog
             </button>
-            <button className="text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan px-3 py-2 text-sm font-medium">
+            <button className="text-cyberpunk-text-secondary hover:text-white px-3 py-2 text-sm font-medium">
               About
             </button>
-            <button className="text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan px-3 py-2 text-sm font-medium">
+            <button className="text-cyberpunk-text-secondary hover:text-white px-3 py-2 text-sm font-medium">
               Contact
             </button>
           </nav>
@@ -73,18 +73,18 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
           {/* Right section */}
           <div className="flex items-center space-x-4">
             {/* Search */}
-            <button className="p-2 text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan hover:bg-cyberpunk-accent-cyan/10 rounded-lg transition-colors">
+            <button className="p-2 text-cyberpunk-text-secondary hover:text-white hover:bg-white/10 rounded-lg transition-colors">
               <Search className="w-5 h-5" />
             </button>
 
             {/* Cart */}
             <button
               onClick={() => onNavigate('cart')}
-              className="relative p-2 text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan hover:bg-cyberpunk-accent-cyan/10 rounded-lg transition-colors"
+              className="relative p-2 text-cyberpunk-text-secondary hover:text-white hover:bg-white/10 rounded-lg transition-colors"
             >
               <ShoppingCart className="w-5 h-5" />
               {cartItemsCount > 0 && (
-                <span className="absolute -top-1 -right-1 w-5 h-5 bg-cyberpunk-accent-cyan text-cyberpunk-primary-bg text-xs rounded-full flex items-center justify-center animate-cyberpunk-glow-pulse">
+                <span className="absolute -top-1 -right-1 w-5 h-5 bg-gradient-to-br from-cyberpunk-accent-pink to-cyberpunk-accent-cyan text-white text-xs rounded-full flex items-center justify-center shadow-cyberpunk">
                   {cartItemsCount}
                 </span>
               )}
@@ -94,7 +94,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
             {isAuthenticated ? (
               <button
                 onClick={() => onNavigate('account')}
-                className="relative p-2 text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan hover:bg-cyberpunk-accent-cyan/10 rounded-lg transition-colors"
+                className="relative p-2 text-cyberpunk-text-secondary hover:text-white hover:bg-white/10 rounded-lg transition-colors"
               >
                 {user?.avatar ? (
                   <img src={user.avatar} alt={user.name} className="w-6 h-6 rounded-full" />
@@ -112,7 +112,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
             )}
 
             {/* Mobile menu */}
-            <button className="md:hidden p-2 text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan hover:bg-cyberpunk-accent-cyan/10 rounded-lg transition-colors">
+            <button className="md:hidden p-2 text-cyberpunk-text-secondary hover:text-white hover:bg-white/10 rounded-lg transition-colors">
               <Menu className="w-5 h-5" />
             </button>
           </div>

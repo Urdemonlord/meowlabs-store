@@ -4,95 +4,81 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Cyberpunk Meow Labs color palette - tuned to match reference hero
+        // Brand palette tuned to match the purple/blue reference artwork
         cyberpunk: {
-          'primary-bg': '#050014', // Deep violet-black base
-          'secondary-bg': '#0b1220', // Muted indigo panel background
-          'accent-cyan': '#00f6a3', // Neon mint accent
-          'accent-pink': '#ff0f7b', // Vivid magenta accent
-          'text-primary': '#ffffff', // White text
-          'text-secondary': '#9aa3c2', // Muted bluish gray copy
-          'dark': '#050014', // Alias for primary background
-          'card': '#0f1a2f', // Card surface tone
-          'neon-teal': '#00f6a3', // Alias for accent cyan
-          'neon-pink': '#ff0f7b', // Alias for accent pink
-          'text-light': '#9aa3c2', // Alias for secondary text
-          'text-white': '#ffffff', // Alias for primary text
+          'primary-bg': '#05021a', // Deep indigo base
+          'secondary-bg': '#0b1238', // Navy overlay panels
+          'accent-cyan': '#38bdf8', // Electric blue highlight
+          'accent-pink': '#8b5cf6', // Vibrant violet highlight
+          'text-primary': '#ffffff', // Primary copy
+          'text-secondary': '#c3c6dd', // Muted lavender gray copy
+          'dark': '#05021a', // Alias for base
+          'card': '#111b3f', // Card surface tone
+          'neon-teal': '#38bdf8', // Alias for blue accent
+          'neon-pink': '#8b5cf6', // Alias for violet accent
+          'neon-blue': '#38bdf8',
+          'text-light': '#c3c6dd', // Alias for secondary text
+          'text-white': '#ffffff', // Alias for white text
         },
         primary: {
-          50: '#e6fff4',
-          100: '#b8ffdf',
-          200: '#8affcc',
-          300: '#5cffba',
-          400: '#2dffab',
-          500: '#00f6a3', // Main neon mint accent
-          600: '#00d88a',
-          700: '#00b871',
-          800: '#009459',
-          900: '#006c40',
+          50: '#ede9fe',
+          100: '#ddd6fe',
+          200: '#c4b5fd',
+          300: '#a78bfa',
+          400: '#8b5cf6',
+          500: '#7c3aed', // Main violet accent
+          600: '#6d28d9',
+          700: '#5b21b6',
+          800: '#4c1d95',
+          900: '#3b1c7a',
         },
         secondary: {
-          50: '#ffe6f2',
-          100: '#ffb8d7',
-          200: '#ff8abb',
-          300: '#ff5ca0',
-          400: '#ff2d8a',
-          500: '#ff0f7b', // Main magenta accent
-          600: '#e00070',
-          700: '#bd0061',
-          800: '#94004f',
-          900: '#6a003c',
+          50: '#e0f2fe',
+          100: '#bae6fd',
+          200: '#7dd3fc',
+          300: '#38bdf8',
+          400: '#0ea5e9',
+          500: '#0284c7',
+          600: '#0369a1',
+          700: '#075985',
+          800: '#0c4a6e',
+          900: '#082f49',
         },
         accent: {
-          50: '#edf5ff',
-          100: '#c7e0ff',
-          200: '#a1caff',
-          300: '#7bb5ff',
-          400: '#55a0ff',
-          500: '#2f8cff', // Electric blue accent
-          600: '#1a70db',
-          700: '#1153a8',
-          800: '#0b3775',
-          900: '#071f4d',
+          50: '#fdf4ff',
+          100: '#fae8ff',
+          200: '#f5d0fe',
+          300: '#f0abfc',
+          400: '#e879f9',
+          500: '#d946ef',
+          600: '#c026d3',
+          700: '#a21caf',
+          800: '#86198f',
+          900: '#701a75',
         },
         neutral: {
-          50: '#f8fafc',
-          100: '#f1f5f9',
-          200: '#e2e8f0',
-          300: '#c0c8df', // Light bluish gray
-          400: '#9aa3c2',
-          500: '#747e9d',
-          600: '#4d5670',
-          700: '#323a52',
-          800: '#1a2135',
-          900: '#0b1220', // Deep navy background
-          950: '#040713',
+          50: '#f4f6fb',
+          100: '#e4e7f5',
+          200: '#d3d7ee',
+          300: '#c3c6dd', // Muted lavender gray
+          400: '#9ea3c7',
+          500: '#7a80a3',
+          600: '#5a6182',
+          700: '#3f4663',
+          800: '#262d47',
+          900: '#131932',
+          950: '#080b1b',
         },
-        // Custom Meow Labs cyberpunk colors - exact match
-        meow: {
-          'primary-bg': '#050014',
-          'secondary-bg': '#0b1220',
-          'accent-cyan': '#00f6a3',
-          'accent-pink': '#ff0f7b',
-          'text-primary': '#ffffff',
-          'text-secondary': '#9aa3c2',
-          'dark': '#050014',
-          'card': '#0f1a2f',
-          'neon-teal': '#00f6a3',
-          'neon-pink': '#ff0f7b',
-          'text-light': '#9aa3c2',
-          'text-white': '#ffffff',
-        }
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         display: ['Poppins', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
-        'cyberpunk': '0 0 22px rgba(0, 246, 163, 0.35), 0 0 48px rgba(0, 246, 163, 0.18)',
-        'cyberpunk-pink': '0 0 22px rgba(255, 15, 123, 0.35), 0 0 48px rgba(255, 15, 123, 0.18)',
-        'cyberpunk-blue': '0 0 22px rgba(47, 140, 255, 0.35), 0 0 48px rgba(47, 140, 255, 0.18)',
-        'cyberpunk-lg': '0 0 36px rgba(0, 246, 163, 0.45), 0 0 70px rgba(0, 246, 163, 0.25)',
+        'cyberpunk': '0 0 22px rgba(139, 92, 246, 0.28), 0 0 48px rgba(56, 189, 248, 0.18)',
+        'cyberpunk-pink': '0 0 22px rgba(139, 92, 246, 0.35), 0 0 48px rgba(139, 92, 246, 0.18)',
+        'cyberpunk-blue': '0 0 22px rgba(56, 189, 248, 0.35), 0 0 48px rgba(14, 165, 233, 0.18)',
+        'cyberpunk-lg': '0 0 36px rgba(139, 92, 246, 0.38), 0 0 70px rgba(56, 189, 248, 0.22)',
         'neon-glow': '0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor',
       },
       animation: {
@@ -118,12 +104,12 @@ export default {
         },
         glowPulse: {
           '0%': {
-            boxShadow: '0 0 22px rgba(0, 246, 163, 0.35), 0 0 48px rgba(0, 246, 163, 0.18)',
-            textShadow: '0 0 10px rgba(0, 246, 163, 0.55)'
+            boxShadow: '0 0 22px rgba(139, 92, 246, 0.32), 0 0 48px rgba(56, 189, 248, 0.18)',
+            textShadow: '0 0 10px rgba(139, 92, 246, 0.55)'
           },
           '100%': {
-            boxShadow: '0 0 36px rgba(0, 246, 163, 0.6), 0 0 72px rgba(0, 246, 163, 0.32)',
-            textShadow: '0 0 20px rgba(0, 246, 163, 0.85)'
+            boxShadow: '0 0 36px rgba(139, 92, 246, 0.5), 0 0 72px rgba(56, 189, 248, 0.28)',
+            textShadow: '0 0 20px rgba(56, 189, 248, 0.75)'
           },
         },
         cyberpunkFlicker: {
@@ -136,11 +122,11 @@ export default {
         },
       },
       backgroundImage: {
-        'cyberpunk-grid': 'linear-gradient(rgba(0, 246, 163, 0.14) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 246, 163, 0.14) 1px, transparent 1px)',
-        'cyberpunk-gradient': 'linear-gradient(135deg, #050014 0%, #0b1220 55%, #050014 100%)',
-        'neon-gradient-teal': 'linear-gradient(135deg, #00f6a3 0%, #00b871 100%)',
-        'neon-gradient-pink': 'linear-gradient(135deg, #ff0f7b 0%, #bd0061 100%)',
-        'neon-gradient-blue': 'linear-gradient(135deg, #2f8cff 0%, #1153a8 100%)',
+        'cyberpunk-grid': 'linear-gradient(rgba(139, 92, 246, 0.14) 1px, transparent 1px), linear-gradient(90deg, rgba(56, 189, 248, 0.14) 1px, transparent 1px)',
+        'cyberpunk-gradient': 'linear-gradient(135deg, #05021a 0%, #0b1238 55%, #05021a 100%)',
+        'neon-gradient-teal': 'linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%)',
+        'neon-gradient-pink': 'linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%)',
+        'neon-gradient-blue': 'linear-gradient(135deg, #8b5cf6 0%, #38bdf8 100%)',
       },
     },
   },
