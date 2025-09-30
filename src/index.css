@@ -1,3 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Cyberpunk Meow Labs global styles - exact match */
+:root {
+  /* Cyberpunk color variables - exact match from image */
+  --cyberpunk-primary-bg: #0f172a;
+  --cyberpunk-secondary-bg: #1a202c;
+  --cyberpunk-accent-cyan: #00e6b8;
+  --cyberpunk-accent-pink: #ff0080;
+  --cyberpunk-text-primary: #ffffff;
+  --cyberpunk-text-secondary: #cbd5e0;
+  
+  /* Cyberpunk gradient variables */
+  --cyberpunk-gradient-bg: linear-gradient(135deg, #0f172a 0%, #1a202c 50%, #0f172a 100%);
+  --cyberpunk-gradient-cyan: linear-gradient(135deg, #00e6b8 0%, #00d4aa 100%);
+  --cyberpunk-gradient-pink: linear-gradient(135deg, #ff0080 0%, #e60073 100%);
+  --cyberpunk-gradient-mixed: linear-gradient(135deg, #00e6b8 0%, #ff0080 100%);
+  
+  /* Cyberpunk glow variables */
+  --cyberpunk-glow-cyan: 0 0 20px rgba(0, 230, 184, 0.4), 0 0 40px rgba(0, 230, 184, 0.2);
+  --cyberpunk-glow-pink: 0 0 20px rgba(255, 0, 128, 0.4), 0 0 40px rgba(255, 0, 128, 0.2);
+  --cyberpunk-glow-lg: 0 0 30px rgba(0, 230, 184, 0.5), 0 0 60px rgba(0, 230, 184, 0.3);
+  
+  /* Grid pattern */
+  --cyberpunk-grid: linear-gradient(rgba(0, 230, 184, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 230, 184, 0.1) 1px, transparent 1px);
+}
+
+@layer base {
+  * {
+    @apply border-cyberpunk-accent-cyan/20;
+  }
+  
+  body {
+    @apply bg-cyberpunk-primary-bg text-cyberpunk-text-secondary font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    background-image: var(--cyberpunk-grid);
+    background-size: 20px 20px;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-semibold text-cyberpunk-text-primary;
+    text-shadow: 0 0 10px rgba(0, 255, 198, 0.4);
+  }
+  
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+  
+  h3 {
+    @apply text-2xl md:text-3xl lg:text-4xl;
+  }
+  
+  h4 {
+    @apply text-xl md:text-2xl lg:text-3xl;
+  }
+  
+  h5 {
+    @apply text-lg md:text-xl lg:text-2xl;
+  }
+  
+  h6 {
+    @apply text-base md:text-lg lg:text-xl;
+  }
+}
+
+@layer components {
+  /* Cyberpunk Meow Labs button styles */
+  .btn-cyberpunk {
+    @apply inline-flex items-center justify-center px-6 py-3 text-sm font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .btn-cyberpunk-primary {
+    @apply btn-cyberpunk bg-cyberpunk-accent-cyan text-cyberpunk-primary-bg hover:bg-primary-600 focus:ring-cyberpunk-accent-cyan shadow-cyberpunk;
+    box-shadow: var(--cyberpunk-glow-cyan);
+  }
+  
+  .btn-cyberpunk-secondary {
+    @apply btn-cyberpunk bg-cyberpunk-neon-pink text-cyberpunk-text-white hover:bg-secondary-600 focus:ring-cyberpunk-neon-pink shadow-cyberpunk-pink;
+    box-shadow: var(--cyberpunk-glow-pink);
+  }
+  
+  .btn-cyberpunk-accent {
+    @apply btn-cyberpunk bg-cyberpunk-neon-blue text-cyberpunk-text-white hover:bg-accent-600 focus:ring-cyberpunk-neon-blue shadow-cyberpunk-blue;
+    box-shadow: var(--cyberpunk-glow-blue);
+  }
+  
+  .btn-cyberpunk-outline {
+    @apply btn-cyberpunk border-2 border-cyberpunk-accent-cyan text-cyberpunk-accent-cyan hover:bg-cyberpunk-accent-cyan hover:text-cyberpunk-primary-bg focus:ring-cyberpunk-accent-cyan;
+    box-shadow: var(--cyberpunk-glow-cyan);
+  }
+  
+  .btn-cyberpunk-ghost {
+    @apply btn-cyberpunk text-cyberpunk-accent-cyan hover:bg-cyberpunk-accent-cyan/10 focus:ring-cyberpunk-accent-cyan;
+  }
+  
+  /* Cyberpunk card styles */
+  .card-cyberpunk {
+    @apply bg-cyberpunk-secondary-bg/80 backdrop-blur-sm rounded-xl border border-cyberpunk-accent-cyan/30 overflow-hidden;
+    box-shadow: var(--cyberpunk-glow-cyan);
+  }
+  
+  .card-cyberpunk-hover {
+    @apply card-cyberpunk hover:shadow-cyberpunk-lg transition-all duration-300 hover:border-cyberpunk-accent-cyan/50;
+  }
+  
+  /* Cyberpunk input styles */
+  .input-cyberpunk {
+    @apply w-full px-4 py-3 text-sm bg-cyberpunk-secondary-bg/50 border border-cyberpunk-accent-cyan/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyberpunk-accent-cyan focus:border-cyberpunk-accent-cyan transition-colors duration-200 text-cyberpunk-text-primary placeholder-cyberpunk-text-secondary;
+    box-shadow: var(--cyberpunk-glow-cyan);
+  }
+  
+  /* Cyberpunk gradient backgrounds */
+  .bg-cyberpunk-gradient-bg {
+    background: var(--cyberpunk-gradient-bg);
+  }
+  
+  .bg-cyberpunk-gradient-teal {
+    background: var(--cyberpunk-gradient-teal);
+  }
+  
+  .bg-cyberpunk-gradient-pink {
+    background: var(--cyberpunk-gradient-pink);
+  }
+  
+  .bg-cyberpunk-gradient-blue {
+    background: var(--cyberpunk-gradient-blue);
+  }
+  
+  /* Cyberpunk text gradients */
+  .text-cyberpunk-gradient-cyan {
+    @apply bg-gradient-to-r from-cyberpunk-accent-cyan to-cyberpunk-accent-pink bg-clip-text text-transparent;
+    text-shadow: 0 0 10px rgba(0, 255, 198, 0.5);
+  }
+  
+  .text-cyberpunk-gradient-pink {
+    @apply bg-gradient-to-r from-cyberpunk-accent-pink to-cyberpunk-accent-cyan bg-clip-text text-transparent;
+    text-shadow: 0 0 10px rgba(255, 62, 127, 0.5);
+  }
+  
+  .text-cyberpunk-gradient-mixed {
+    @apply bg-gradient-to-r from-cyberpunk-accent-cyan to-cyberpunk-accent-pink bg-clip-text text-transparent;
+    text-shadow: 0 0 10px rgba(0, 255, 198, 0.5);
+  }
+  
+  /* Cyberpunk animations */
+  .animate-cyberpunk-fade-in {
+    @apply animate-fade-in;
+  }
+  
+  .animate-cyberpunk-slide-up {
+    @apply animate-slide-up;
+  }
+  
+  .animate-cyberpunk-glow-pulse {
+    @apply animate-glow-pulse;
+  }
+  
+  .animate-cyberpunk-flicker {
+    animation: cyberpunkFlicker 0.15s infinite linear;
+  }
+}
+
+@layer utilities {
+  /* Cyberpunk scrollbar */
+  .scrollbar-cyberpunk::-webkit-scrollbar {
+    @apply w-2;
+  }
+  
+  .scrollbar-cyberpunk::-webkit-scrollbar-track {
+    @apply bg-cyberpunk-secondary-bg rounded-full;
+  }
+  
+  .scrollbar-cyberpunk::-webkit-scrollbar-thumb {
+    @apply bg-cyberpunk-accent-cyan rounded-full hover:bg-primary-600;
+    box-shadow: var(--cyberpunk-glow-cyan);
+  }
+  
+  /* Cyberpunk glass morphism effect */
+  .glass-cyberpunk {
+    @apply bg-cyberpunk-secondary-bg/80 backdrop-blur-sm border border-cyberpunk-accent-cyan/30;
+    box-shadow: var(--cyberpunk-glow-cyan);
+  }
+  
+  /* Cyberpunk specific utilities */
+  .text-shadow-cyberpunk {
+    text-shadow: 0 0 10px rgba(0, 230, 184, 0.5);
+  }
+  
+  .text-shadow-cyberpunk-lg {
+    text-shadow: 0 0 20px rgba(0, 230, 184, 0.8);
+  }
+  
+  .text-shadow-cyberpunk-pink {
+    text-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
+  }
+  
+  .text-shadow-cyberpunk-blue {
+    text-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+  }
+}

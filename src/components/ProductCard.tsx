@@ -31,12 +31,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onClick }) => {
 
   const getCategoryColor = (category: string) => {
     const colors: { [key: string]: string } = {
-      'ebook': 'bg-green-500/20 text-green-400 border-green-500/30',
-      'template': 'bg-blue-500/20 text-blue-400 border-blue-500/30',
-      'source-code': 'bg-purple-500/20 text-purple-400 border-purple-500/30',
-      'merchandise': 'bg-orange-500/20 text-orange-400 border-orange-500/30'
+      'ebook': 'bg-cyberpunk-accent-green/20 text-cyberpunk-accent-green border-cyberpunk-accent-green/30',
+      'template': 'bg-cyberpunk-neon-teal/20 text-cyberpunk-neon-teal border-cyberpunk-neon-teal/30',
+      'source-code': 'bg-cyberpunk-neon-pink/20 text-cyberpunk-neon-pink border-cyberpunk-neon-pink/30',
+      'merchandise': 'bg-cyberpunk-neon-blue/20 text-cyberpunk-neon-blue border-cyberpunk-neon-blue/30'
     };
-    return colors[category] || 'bg-gray-500/20 text-gray-400 border-gray-500/30';
+    return colors[category] || 'bg-cyberpunk-text-light/20 text-cyberpunk-text-light border-cyberpunk-text-light/30';
   };
 
   const handleAddToCart = (e: React.MouseEvent) => {
@@ -46,7 +46,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onClick }) => {
 
   return (
     <div 
-      className="group relative bg-gradient-to-b from-gray-800/50 to-gray-900/50 rounded-2xl overflow-hidden border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 cursor-pointer hover:transform hover:scale-105"
+      className="group relative card-cyberpunk-hover cursor-pointer hover:transform hover:scale-105 animate-cyberpunk-fade-in"
       onClick={onClick}
     >
       {/* Image */}
@@ -56,7 +56,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onClick }) => {
           alt={product.title}
           className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-gradient-to-t from-cyberpunk-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         
         {/* Category Badge */}
         <div className={`absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-medium border ${getCategoryColor(product.category)}`}>
@@ -80,10 +80,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onClick }) => {
 
       {/* Content */}
       <div className="p-6">
-        <h3 className="text-lg font-semibold text-white mb-2 line-clamp-2 group-hover:text-purple-400 transition-colors">
+        <h3 className="text-lg font-semibold text-cyberpunk-text-white mb-2 line-clamp-2 group-hover:text-cyberpunk-neon-teal transition-colors text-shadow-cyberpunk">
           {product.title}
         </h3>
-        <p className="text-gray-400 text-sm mb-4 line-clamp-2">
+        <p className="text-cyberpunk-text-light text-sm mb-4 line-clamp-2">
           {product.description}
         </p>
 
@@ -92,13 +92,13 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onClick }) => {
           {product.features.slice(0, 2).map((feature, index) => (
             <span
               key={index}
-              className="text-xs px-2 py-1 bg-gray-700/50 text-gray-300 rounded-md"
+              className="text-xs px-2 py-1 bg-cyberpunk-neon-teal/20 text-cyberpunk-neon-teal rounded-md border border-cyberpunk-neon-teal/30"
             >
               {feature}
             </span>
           ))}
           {product.features.length > 2 && (
-            <span className="text-xs px-2 py-1 bg-gray-700/50 text-gray-300 rounded-md">
+            <span className="text-xs px-2 py-1 bg-cyberpunk-neon-teal/20 text-cyberpunk-neon-teal rounded-md border border-cyberpunk-neon-teal/30">
               +{product.features.length - 2} more
             </span>
           )}
@@ -107,20 +107,20 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onClick }) => {
         {/* Price and Rating */}
         <div className="flex items-center justify-between mb-4">
           <div>
-            <div className="text-2xl font-bold text-white">
+            <div className="text-2xl font-bold text-cyberpunk-text-white text-shadow-cyberpunk">
               {formatPrice(product.price)}
             </div>
           </div>
           <div className="flex items-center space-x-1">
-            <Star className="w-4 h-4 text-yellow-400 fill-current" />
-            <span className="text-sm text-gray-300">4.8</span>
+            <Star className="w-4 h-4 text-cyberpunk-neon-teal fill-current" />
+            <span className="text-sm text-cyberpunk-text-light">4.8</span>
           </div>
         </div>
 
         {/* Add to Cart Button */}
         <button
           onClick={handleAddToCart}
-          className="w-full flex items-center justify-center px-4 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-xl hover:from-purple-600 hover:to-blue-600 transition-colors transform hover:scale-105 shadow-lg hover:shadow-purple-500/25"
+          className="btn-cyberpunk-primary w-full animate-cyberpunk-glow-pulse"
         >
           <ShoppingCart className="w-4 h-4 mr-2" />
           Tambah ke Keranjang
