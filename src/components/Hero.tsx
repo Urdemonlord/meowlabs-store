@@ -1,5 +1,6 @@
 import React from 'react';
-import { ArrowRight, Zap, Shield, Download } from 'lucide-react';
+import { ArrowRight, Zap, MessageCircle } from 'lucide-react';
+import CyberCat from './CyberCat';
 
 interface HeroProps {
   onShopNow: () => void;
@@ -7,80 +8,93 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ onShopNow }) => {
   return (
-    <section className="relative overflow-hidden bg-cyberpunk-gradient-bg">
-      {/* Background decoration */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-cyberpunk-neon-teal/20 rounded-full blur-3xl animate-cyberpunk-glow-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyberpunk-neon-pink/20 rounded-full blur-3xl animate-cyberpunk-glow-pulse"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-cyberpunk-neon-blue/10 rounded-full blur-3xl animate-cyberpunk-glow-pulse"></div>
+    <section className="relative overflow-hidden">
+      {/* Gradient base */}
+      <div className="absolute inset-0 bg-cyberpunk-gradient-bg" />
+      <div className="absolute inset-0 flex justify-end">
+        <div className="hidden md:block w-1/2 h-full bg-cyberpunk-card/60" style={{ backgroundImage: 'var(--cyberpunk-grid)', backgroundSize: '32px 32px' }} />
       </div>
+      <div className="absolute -top-20 -left-20 w-80 h-80 bg-cyberpunk-accent-pink/20 blur-3xl rounded-full" />
+      <div className="absolute top-1/3 right-1/3 w-64 h-64 bg-cyberpunk-accent-cyan/25 blur-3xl rounded-full" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
-        <div className="text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center px-4 py-2 rounded-full glass-cyberpunk mb-8 animate-cyberpunk-fade-in">
-            <Zap className="w-4 h-4 text-cyberpunk-neon-teal mr-2 animate-cyberpunk-flicker" />
-            <span className="text-sm font-medium text-cyberpunk-text-white">Digital Products & Creative Tools</span>
-          </div>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-16">
+          {/* Left column */}
+          <div className="w-full lg:w-1/2 space-y-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyberpunk-secondary-bg/70 border border-cyberpunk-accent-cyan/30 text-cyberpunk-accent-cyan shadow-cyberpunk">
+              <Zap className="w-4 h-4" />
+              <span className="text-sm font-medium uppercase tracking-widest">Digital Agency</span>
+            </div>
 
-          {/* Main heading */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6 animate-cyberpunk-slide-up">
-            <span className="block text-cyberpunk-text-white text-shadow-cyberpunk-lg">Solusi Digital</span>
-            <span className="block text-cyberpunk-gradient-teal text-shadow-cyberpunk-lg">
-              untuk Developer & UMKM
-            </span>
-          </h1>
-
-          <p className="max-w-3xl mx-auto text-lg sm:text-xl text-cyberpunk-text-light mb-10 animate-cyberpunk-fade-in">
-            Temukan koleksi produk digital berkualitas tinggi: ebook, template website, source code, 
-            dan merchandise eksklusif dari MeowLabs. Semua yang Anda butuhkan untuk mengembangkan 
-            bisnis dan skill teknologi.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <button
-              onClick={onShopNow}
-              className="btn-cyberpunk-primary px-8 py-4 text-lg font-semibold rounded-xl transform hover:scale-105 animate-cyberpunk-glow-pulse"
-            >
-              Mulai Belanja
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </button>
-            <button className="inline-flex items-center px-8 py-4 border-2 border-cyberpunk-neon-teal text-cyberpunk-neon-teal font-semibold rounded-xl hover:bg-cyberpunk-neon-teal hover:text-cyberpunk-dark transition-colors animate-cyberpunk-glow-pulse">
-              Lihat Katalog
-            </button>
-          </div>
-
-          {/* Features */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className="flex flex-col items-center p-6 rounded-2xl glass-cyberpunk animate-cyberpunk-fade-in">
-              <div className="w-12 h-12 bg-cyberpunk-gradient-teal rounded-xl flex items-center justify-center mb-4 animate-cyberpunk-glow-pulse">
-                <Download className="w-6 h-6 text-cyberpunk-dark" />
-              </div>
-              <h3 className="text-lg font-semibold text-cyberpunk-text-white mb-2 text-shadow-cyberpunk">Download Instan</h3>
-              <p className="text-cyberpunk-text-light text-sm text-center">
-                Akses langsung setelah pembelian via email otomatis
+            <div className="space-y-4">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-white">
+                <span className="block">Jasa Pembuatan Website</span>
+                <span className="block text-cyberpunk-accent-cyan">Murah untuk UMKM &amp; Personal</span>
+              </h1>
+              <p className="text-lg sm:text-xl text-cyberpunk-text-secondary max-w-xl">
+                Layanan pembuatan website untuk UMKM, desa, hingga personal branding dengan desain profesional mulai dari 500 ribuan. Website responsif, SEO friendly, dan maintenance gratis selama 1 tahun.
               </p>
             </div>
 
-            <div className="flex flex-col items-center p-6 rounded-2xl glass-cyberpunk animate-cyberpunk-fade-in">
-              <div className="w-12 h-12 bg-cyberpunk-gradient-pink rounded-xl flex items-center justify-center mb-4 animate-cyberpunk-glow-pulse">
-                <Shield className="w-6 h-6 text-cyberpunk-text-white" />
-              </div>
-              <h3 className="text-lg font-semibold text-cyberpunk-text-white mb-2 text-shadow-cyberpunk-pink">Kualitas Terjamin</h3>
-              <p className="text-cyberpunk-text-light text-sm text-center">
-                Produk teruji dan siap pakai untuk kebutuhan profesional
-              </p>
+            <div className="flex flex-col sm:flex-row items-center gap-4">
+              <button
+                onClick={onShopNow}
+                className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-cyberpunk-accent-cyan text-cyberpunk-dark text-lg font-semibold shadow-cyberpunk hover:shadow-cyberpunk-lg transition-transform hover:-translate-y-0.5"
+              >
+                Konsultasi Gratis
+                <ArrowRight className="ml-3 w-5 h-5" />
+              </button>
+              <button className="inline-flex items-center justify-center px-8 py-4 rounded-xl border border-cyberpunk-text-secondary/30 text-white hover:border-cyberpunk-accent-cyan hover:text-cyberpunk-accent-cyan transition-colors">
+                Lihat Portofolio
+              </button>
             </div>
 
-            <div className="flex flex-col items-center p-6 rounded-2xl glass-cyberpunk animate-cyberpunk-fade-in">
-              <div className="w-12 h-12 bg-cyberpunk-gradient-blue rounded-xl flex items-center justify-center mb-4 animate-cyberpunk-glow-pulse">
-                <Zap className="w-6 h-6 text-cyberpunk-text-white" />
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              <div className="p-5 rounded-2xl bg-cyberpunk-secondary-bg/70 border border-cyberpunk-accent-cyan/20">
+                <p className="text-3xl font-bold text-white">100+</p>
+                <p className="text-sm text-cyberpunk-text-secondary">Projects</p>
               </div>
-              <h3 className="text-lg font-semibold text-cyberpunk-text-white mb-2 text-shadow-cyberpunk-blue">Support Lengkap</h3>
-              <p className="text-cyberpunk-text-light text-sm text-center">
-                Dokumentasi detail dan dukungan teknis untuk semua produk
-              </p>
+              <div className="p-5 rounded-2xl bg-cyberpunk-secondary-bg/70 border border-cyberpunk-accent-cyan/20">
+                <p className="text-3xl font-bold text-white">100+</p>
+                <p className="text-sm text-cyberpunk-text-secondary">Happy Clients</p>
+              </div>
+              <div className="p-5 rounded-2xl bg-cyberpunk-secondary-bg/70 border border-cyberpunk-accent-cyan/20">
+                <p className="text-3xl font-bold text-white">7+</p>
+                <p className="text-sm text-cyberpunk-text-secondary">Years Experience</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Right column */}
+          <div className="w-full lg:w-1/2 flex justify-center">
+            <div className="relative w-full max-w-md">
+              <div className="absolute inset-0 bg-cyberpunk-accent-cyan/20 blur-2xl rounded-[2.5rem]" />
+              <div className="relative overflow-hidden rounded-[2.5rem] border border-cyberpunk-accent-cyan/30 bg-cyberpunk-card/80 backdrop-blur-xl p-10">
+                <div className="absolute inset-x-10 -top-12 h-24 bg-cyberpunk-accent-cyan/10 blur-3xl rounded-full" />
+                <div className="relative flex flex-col items-center">
+                  <CyberCat />
+                  <div className="mt-8 w-full space-y-4">
+                    <div className="flex items-center justify-between px-5 py-3 rounded-2xl border border-cyberpunk-accent-cyan/30 bg-cyberpunk-secondary-bg/60">
+                      <div>
+                        <p className="text-sm text-cyberpunk-text-secondary">Project Type</p>
+                        <p className="text-base font-semibold text-white">Landing Page</p>
+                      </div>
+                      <span className="px-3 py-1 text-xs font-semibold rounded-full bg-cyberpunk-accent-cyan/10 text-cyberpunk-accent-cyan">
+                        7 Hari
+                      </span>
+                    </div>
+                    <div className="px-5 py-3 rounded-2xl border border-cyberpunk-accent-cyan/20 bg-cyberpunk-secondary-bg/60">
+                      <p className="text-sm text-cyberpunk-text-secondary">Stack</p>
+                      <p className="text-base font-semibold text-white">Next.js • TailwindCSS • SEO</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="absolute -bottom-10 right-6 px-5 py-3 rounded-2xl bg-cyberpunk-accent-pink text-white flex items-center gap-3 shadow-cyberpunk-pink">
+                <MessageCircle className="w-5 h-5" />
+                <span className="text-sm font-semibold">Chat dengan kami?</span>
+              </div>
             </div>
           </div>
         </div>

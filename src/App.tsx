@@ -82,8 +82,8 @@ function App() {
   return (
     <AuthProvider>
       <CartProvider>
-        <div className="min-h-screen bg-gray-900 text-white">
-          <Header 
+        <div className="min-h-screen bg-cyberpunk-primary-bg text-cyberpunk-text-secondary">
+          <Header
             onNavigate={navigateTo}
             currentPage={currentPage}
           />

@@ -6,27 +6,28 @@
 
 /* Cyberpunk Meow Labs global styles - exact match */
 :root {
-  /* Cyberpunk color variables - exact match from image */
-  --cyberpunk-primary-bg: #0f172a;
-  --cyberpunk-secondary-bg: #1a202c;
-  --cyberpunk-accent-cyan: #00e6b8;
-  --cyberpunk-accent-pink: #ff0080;
+  /* Cyberpunk color variables tuned to the provided visual reference */
+  --cyberpunk-primary-bg: #050014;
+  --cyberpunk-secondary-bg: #0b1220;
+  --cyberpunk-card-bg: #0f1a2f;
+  --cyberpunk-accent-cyan: #00f6a3;
+  --cyberpunk-accent-pink: #ff0f7b;
   --cyberpunk-text-primary: #ffffff;
-  --cyberpunk-text-secondary: #cbd5e0;
-  
+  --cyberpunk-text-secondary: #9aa3c2;
+
   /* Cyberpunk gradient variables */
-  --cyberpunk-gradient-bg: linear-gradient(135deg, #0f172a 0%, #1a202c 50%, #0f172a 100%);
-  --cyberpunk-gradient-cyan: linear-gradient(135deg, #00e6b8 0%, #00d4aa 100%);
-  --cyberpunk-gradient-pink: linear-gradient(135deg, #ff0080 0%, #e60073 100%);
-  --cyberpunk-gradient-mixed: linear-gradient(135deg, #00e6b8 0%, #ff0080 100%);
-  
+  --cyberpunk-gradient-bg: linear-gradient(135deg, #050014 0%, #0b1220 60%, #050014 100%);
+  --cyberpunk-gradient-cyan: linear-gradient(135deg, #00f6a3 0%, #00b871 100%);
+  --cyberpunk-gradient-pink: linear-gradient(135deg, #ff0f7b 0%, #bd0061 100%);
+  --cyberpunk-gradient-mixed: linear-gradient(135deg, #00f6a3 0%, #ff0f7b 100%);
+
   /* Cyberpunk glow variables */
-  --cyberpunk-glow-cyan: 0 0 20px rgba(0, 230, 184, 0.4), 0 0 40px rgba(0, 230, 184, 0.2);
-  --cyberpunk-glow-pink: 0 0 20px rgba(255, 0, 128, 0.4), 0 0 40px rgba(255, 0, 128, 0.2);
-  --cyberpunk-glow-lg: 0 0 30px rgba(0, 230, 184, 0.5), 0 0 60px rgba(0, 230, 184, 0.3);
-  
+  --cyberpunk-glow-cyan: 0 0 24px rgba(0, 246, 163, 0.45), 0 0 48px rgba(0, 246, 163, 0.25);
+  --cyberpunk-glow-pink: 0 0 24px rgba(255, 15, 123, 0.45), 0 0 48px rgba(255, 15, 123, 0.25);
+  --cyberpunk-glow-lg: 0 0 36px rgba(0, 246, 163, 0.55), 0 0 72px rgba(0, 246, 163, 0.3);
+
   /* Grid pattern */
-  --cyberpunk-grid: linear-gradient(rgba(0, 230, 184, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 230, 184, 0.1) 1px, transparent 1px);
+  --cyberpunk-grid: linear-gradient(rgba(0, 246, 163, 0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 246, 163, 0.12) 1px, transparent 1px);
 }
 
 @layer base {
@@ -37,8 +38,8 @@
   body {
     @apply bg-cyberpunk-primary-bg text-cyberpunk-text-secondary font-sans;
     font-feature-settings: "rlig" 1, "calt" 1;
-    background-image: var(--cyberpunk-grid);
-    background-size: 20px 20px;
+    background: var(--cyberpunk-gradient-bg);
+    background-attachment: fixed;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -190,19 +191,19 @@
   }
   
   /* Cyberpunk specific utilities */
-  .text-shadow-cyberpunk {
-    text-shadow: 0 0 10px rgba(0, 230, 184, 0.5);
-  }
-  
-  .text-shadow-cyberpunk-lg {
-    text-shadow: 0 0 20px rgba(0, 230, 184, 0.8);
-  }
-  
-  .text-shadow-cyberpunk-pink {
-    text-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
-  }
-  
-  .text-shadow-cyberpunk-blue {
-    text-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
-  }
+    .text-shadow-cyberpunk {
+      text-shadow: 0 0 10px rgba(0, 246, 163, 0.5);
+    }
+
+    .text-shadow-cyberpunk-lg {
+      text-shadow: 0 0 20px rgba(0, 246, 163, 0.85);
+    }
+
+    .text-shadow-cyberpunk-pink {
+      text-shadow: 0 0 10px rgba(255, 15, 123, 0.5);
+    }
+
+    .text-shadow-cyberpunk-blue {
+      text-shadow: 0 0 10px rgba(47, 140, 255, 0.5);
+    }
 }

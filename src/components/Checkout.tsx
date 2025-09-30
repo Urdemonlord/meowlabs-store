@@ -64,11 +64,11 @@ const Checkout: React.FC<CheckoutProps> = ({ onSuccess }) => {
   const finalTotal = total + (selectedMethod?.fee || 0);
 
   return (
-    <div className="min-h-screen bg-gray-900 py-8">
+    <div className="min-h-screen bg-cyberpunk-primary-bg py-8">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8">
-          <button className="flex items-center text-gray-300 hover:text-white mb-4 transition-colors">
+          <button className="flex items-center text-cyberpunk-text-secondary hover:text-white mb-4 transition-colors">
             <ArrowLeft className="w-5 h-5 mr-2" />
             Kembali ke Keranjang
           </button>
@@ -79,44 +79,44 @@ const Checkout: React.FC<CheckoutProps> = ({ onSuccess }) => {
           {/* Main Checkout Form */}
           <div className="lg:col-span-2 space-y-8">
             {/* Customer Information */}
-            <div className="bg-gradient-to-b from-gray-800/50 to-gray-900/50 rounded-2xl p-6 border border-gray-700/50">
+            <div className="bg-gradient-to-b from-cyberpunk-secondary-bg/60 to-cyberpunk-primary-bg/60 rounded-2xl p-6 border border-cyberpunk-accent-cyan/20">
               <h2 className="text-xl font-semibold text-white mb-6">Informasi Pembeli</h2>
               <form className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-cyberpunk-text-secondary mb-2">
                     Nama Lengkap *
                   </label>
                   <input
                     type="text"
                     value={customerInfo.name}
                     onChange={(e) => setCustomerInfo({ ...customerInfo, name: e.target.value })}
-                    className="w-full px-4 py-3 border border-gray-600 rounded-xl bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    className="w-full px-4 py-3 border border-cyberpunk-accent-cyan/30 rounded-xl bg-cyberpunk-secondary-bg text-white placeholder-cyberpunk-text-secondary/70 focus:outline-none focus:ring-2 focus:ring-purple-500"
                     placeholder="Masukkan nama lengkap"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-cyberpunk-text-secondary mb-2">
                     Email *
                   </label>
                   <input
                     type="email"
                     value={customerInfo.email}
                     onChange={(e) => setCustomerInfo({ ...customerInfo, email: e.target.value })}
-                    className="w-full px-4 py-3 border border-gray-600 rounded-xl bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    className="w-full px-4 py-3 border border-cyberpunk-accent-cyan/30 rounded-xl bg-cyberpunk-secondary-bg text-white placeholder-cyberpunk-text-secondary/70 focus:outline-none focus:ring-2 focus:ring-purple-500"
                     placeholder="email@example.com"
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                  <label className="block text-sm font-medium text-cyberpunk-text-secondary mb-2">
                     Nomor WhatsApp *
                   </label>
                   <input
                     type="tel"
                     value={customerInfo.phone}
                     onChange={(e) => setCustomerInfo({ ...customerInfo, phone: e.target.value })}
-                    className="w-full px-4 py-3 border border-gray-600 rounded-xl bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    className="w-full px-4 py-3 border border-cyberpunk-accent-cyan/30 rounded-xl bg-cyberpunk-secondary-bg text-white placeholder-cyberpunk-text-secondary/70 focus:outline-none focus:ring-2 focus:ring-purple-500"
                     placeholder="08xxxxxxxxxx"
                     required
                   />
@@ -125,7 +125,7 @@ const Checkout: React.FC<CheckoutProps> = ({ onSuccess }) => {
             </div>
 
             {/* Payment Method */}
-            <div className="bg-gradient-to-b from-gray-800/50 to-gray-900/50 rounded-2xl p-6 border border-gray-700/50">
+            <div className="bg-gradient-to-b from-cyberpunk-secondary-bg/60 to-cyberpunk-primary-bg/60 rounded-2xl p-6 border border-cyberpunk-accent-cyan/20">
               <h2 className="text-xl font-semibold text-white mb-6">Metode Pembayaran</h2>
               <div className="space-y-3">
                 {paymentMethods.map((method) => {
@@ -136,7 +136,7 @@ const Checkout: React.FC<CheckoutProps> = ({ onSuccess }) => {
                       className={`flex items-center p-4 border rounded-xl cursor-pointer transition-colors ${
                         selectedPayment === method.id
                           ? 'border-purple-500 bg-purple-500/10'
-                          : 'border-gray-600 hover:border-gray-500'
+                          : 'border-cyberpunk-accent-cyan/30 hover:border-cyberpunk-accent-cyan/60'
                       }`}
                     >
                       <input
@@ -148,10 +148,10 @@ const Checkout: React.FC<CheckoutProps> = ({ onSuccess }) => {
                         className="sr-only"
                       />
                       <div className="flex items-center w-full">
-                        <Icon className="w-6 h-6 text-gray-400 mr-4" />
+                        <Icon className="w-6 h-6 text-cyberpunk-text-secondary mr-4" />
                         <div className="flex-1">
                           <div className="text-white font-medium">{method.name}</div>
-                          <div className="text-gray-400 text-sm">{method.description}</div>
+                          <div className="text-cyberpunk-text-secondary text-sm">{method.description}</div>
                         </div>
                         {method.fee > 0 && (
                           <div className="text-purple-400 text-sm">
@@ -171,7 +171,7 @@ const Checkout: React.FC<CheckoutProps> = ({ onSuccess }) => {
 
           {/* Order Summary */}
           <div className="lg:col-span-1">
-            <div className="bg-gradient-to-b from-gray-800/50 to-gray-900/50 rounded-2xl p-6 border border-gray-700/50 sticky top-8">
+            <div className="bg-gradient-to-b from-cyberpunk-secondary-bg/60 to-cyberpunk-primary-bg/60 rounded-2xl p-6 border border-cyberpunk-accent-cyan/20 sticky top-8">
               <h3 className="text-xl font-semibold text-white mb-6">Ringkasan Pesanan</h3>
               
               {/* Items */}
@@ -187,7 +187,7 @@ const Checkout: React.FC<CheckoutProps> = ({ onSuccess }) => {
                       <div className="text-white font-medium text-sm truncate">
                         {item.product.title}
                       </div>
-                      <div className="text-gray-400 text-xs">
+                      <div className="text-cyberpunk-text-secondary text-xs">
                         Qty: {item.quantity}
                       </div>
                     </div>
@@ -199,18 +199,18 @@ const Checkout: React.FC<CheckoutProps> = ({ onSuccess }) => {
               </div>
 
               {/* Pricing Breakdown */}
-              <div className="border-t border-gray-700 pt-4 space-y-3">
-                <div className="flex justify-between text-gray-300">
+              <div className="border-t border-cyberpunk-accent-cyan/25 pt-4 space-y-3">
+                <div className="flex justify-between text-cyberpunk-text-secondary">
                   <span>Subtotal</span>
                   <span>{formatPrice(total)}</span>
                 </div>
                 {selectedMethod?.fee > 0 && (
-                  <div className="flex justify-between text-gray-300">
+                  <div className="flex justify-between text-cyberpunk-text-secondary">
                     <span>Biaya Payment</span>
                     <span>{formatPrice(selectedMethod.fee)}</span>
                   </div>
                 )}
-                <div className="flex justify-between items-center text-lg font-semibold text-white border-t border-gray-700 pt-3">
+                <div className="flex justify-between items-center text-lg font-semibold text-white border-t border-cyberpunk-accent-cyan/25 pt-3">
                   <span>Total</span>
                   <span className="text-purple-400">
                     {formatPrice(finalTotal)}
@@ -239,7 +239,7 @@ const Checkout: React.FC<CheckoutProps> = ({ onSuccess }) => {
 
               {/* Security Notice */}
               <div className="mt-6 text-center">
-                <div className="text-sm text-gray-400 space-y-1">
+                <div className="text-sm text-cyberpunk-text-secondary space-y-1">
                   <div className="flex items-center justify-center mb-2">
                     <Lock className="w-4 h-4 mr-1" />
                     Pembayaran diamankan dengan SSL
