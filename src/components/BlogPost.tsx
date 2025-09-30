@@ -101,7 +101,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, onBack }) => {
               {post.tags.map(tag => (
                 <span
                   key={tag}
-                  className="px-3 py-1 bg-purple-500/20 text-purple-400 border border-purple-500/30 rounded-full text-sm font-medium"
+                  className="px-3 py-1 bg-cyberpunk-accent-cyan/15 text-cyberpunk-accent-cyan border border-cyberpunk-accent-cyan/30 rounded-full text-sm font-medium"
                 >
                   {tag}
                 </span>
@@ -136,7 +136,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, onBack }) => {
               </div>
               <button
                 onClick={handleShare}
-                className="flex items-center text-sm hover:text-purple-400 transition-colors"
+                className="flex items-center text-sm hover:text-cyberpunk-accent-cyan transition-colors"
               >
                 <Share2 className="w-4 h-4 mr-2" />
                 Share
@@ -159,8 +159,8 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, onBack }) => {
                     const level = match.trim().length;
                     return `<h${level} class="text-white font-bold mt-8 mb-4 text-${4-level}xl">`;
                   }).replace(/\*\*(.*?)\*\*/g, '<strong class="text-white font-semibold">$1</strong>')
-                    .replace(/`(.*?)`/g, '<code class="bg-cyberpunk-secondary-bg text-purple-400 px-2 py-1 rounded text-sm">$1</code>')
-                    .replace(/```([\s\S]*?)```/g, '<pre class="bg-cyberpunk-secondary-bg p-4 rounded-lg overflow-x-auto my-6"><code class="text-green-400">$1</code></pre>')
+                    .replace(/`(.*?)`/g, '<code class="bg-cyberpunk-secondary-bg text-cyberpunk-accent-cyan px-2 py-1 rounded text-sm">$1</code>')
+                    .replace(/```([\s\S]*?)```/g, '<pre class="bg-cyberpunk-secondary-bg p-4 rounded-lg overflow-x-auto my-6"><code class="text-cyberpunk-accent-cyan">$1</code></pre>')
                 }}
               />
             </div>
@@ -174,7 +174,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, onBack }) => {
                 </div>
                 <button
                   onClick={handleShare}
-                  className="flex items-center px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-xl hover:from-purple-600 hover:to-blue-600 transition-colors"
+                  className="flex items-center px-6 py-3 bg-gradient-to-r from-cyberpunk-accent-cyan to-cyberpunk-accent-pink text-cyberpunk-dark font-semibold rounded-xl transition-colors shadow-cyberpunk"
                 >
                   <Share2 className="w-4 h-4 mr-2" />
                   Share
@@ -193,16 +193,16 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, onBack }) => {
                   Daftar Isi
                 </h3>
                 <div className="space-y-2 text-sm">
-                  <a href="#" className="block text-cyberpunk-text-secondary hover:text-purple-400 transition-colors">
+                  <a href="#" className="block text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan transition-colors">
                     Mengapa UMKM Perlu AI?
                   </a>
-                  <a href="#" className="block text-cyberpunk-text-secondary hover:text-purple-400 transition-colors">
+                  <a href="#" className="block text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan transition-colors">
                     5 Cara Praktis ChatGPT
                   </a>
-                  <a href="#" className="block text-cyberpunk-text-secondary hover:text-purple-400 transition-colors">
+                  <a href="#" className="block text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan transition-colors">
                     Tips Implementasi
                   </a>
-                  <a href="#" className="block text-cyberpunk-text-secondary hover:text-purple-400 transition-colors">
+                  <a href="#" className="block text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan transition-colors">
                     Kesimpulan
                   </a>
                 </div>
@@ -227,7 +227,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, onBack }) => {
               </div>
 
               {/* Newsletter */}
-              <div className="bg-gradient-to-br from-purple-500/10 to-blue-500/10 rounded-2xl p-6 border border-purple-500/20">
+              <div className="bg-gradient-to-br from-cyberpunk-accent-cyan/10 to-cyberpunk-accent-pink/10 rounded-2xl p-6 border border-cyberpunk-accent-cyan/20">
                 <h3 className="text-lg font-semibold text-white mb-3">Newsletter</h3>
                 <p className="text-cyberpunk-text-secondary text-sm mb-4">
                   Dapatkan artikel terbaru langsung di inbox Anda
@@ -236,9 +236,9 @@ const BlogPost: React.FC<BlogPostProps> = ({ post, onBack }) => {
                   <input
                     type="email"
                     placeholder="Email Anda"
-                    className="w-full px-3 py-2 border border-cyberpunk-accent-cyan/30 rounded-lg bg-cyberpunk-secondary-bg text-white placeholder-cyberpunk-text-secondary/70 focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm"
+                    className="w-full px-3 py-2 border border-cyberpunk-accent-cyan/30 rounded-lg bg-cyberpunk-secondary-bg text-white placeholder-cyberpunk-text-secondary/70 focus:outline-none focus:ring-2 focus:ring-cyberpunk-accent-cyan text-sm"
                   />
-                  <button className="w-full px-4 py-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-lg hover:from-purple-600 hover:to-blue-600 transition-colors text-sm">
+                  <button className="w-full px-4 py-2 bg-gradient-to-r from-cyberpunk-accent-cyan to-cyberpunk-accent-pink text-cyberpunk-dark font-semibold rounded-lg transition-colors shadow-cyberpunk text-sm">
                     Subscribe
                   </button>
                 </div>

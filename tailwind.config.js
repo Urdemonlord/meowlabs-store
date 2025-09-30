@@ -93,10 +93,10 @@ export default {
         display: ['Poppins', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
-        'cyberpunk': '0 0 22px rgba(0, 246, 163, 0.35), 0 0 48px rgba(0, 246, 163, 0.18)',
-        'cyberpunk-pink': '0 0 22px rgba(255, 15, 123, 0.35), 0 0 48px rgba(255, 15, 123, 0.18)',
-        'cyberpunk-blue': '0 0 22px rgba(47, 140, 255, 0.35), 0 0 48px rgba(47, 140, 255, 0.18)',
-        'cyberpunk-lg': '0 0 36px rgba(0, 246, 163, 0.45), 0 0 70px rgba(0, 246, 163, 0.25)',
+        'cyberpunk': '0 0 22px rgba(0, 212, 255, 0.35), 0 0 48px rgba(0, 212, 255, 0.18)',
+        'cyberpunk-pink': '0 0 22px rgba(255, 107, 53, 0.35), 0 0 48px rgba(255, 107, 53, 0.18)',
+        'cyberpunk-blue': '0 0 22px rgba(0, 148, 255, 0.35), 0 0 48px rgba(0, 148, 255, 0.18)',
+        'cyberpunk-lg': '0 0 36px rgba(0, 212, 255, 0.45), 0 0 70px rgba(0, 212, 255, 0.25)',
         'neon-glow': '0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor',
       },
       animation: {
@@ -122,12 +122,12 @@ export default {
         },
         glowPulse: {
           '0%': {
-            boxShadow: '0 0 22px rgba(0, 246, 163, 0.35), 0 0 48px rgba(0, 246, 163, 0.18)',
-            textShadow: '0 0 10px rgba(0, 246, 163, 0.55)'
+            boxShadow: '0 0 22px rgba(0, 212, 255, 0.35), 0 0 48px rgba(255, 107, 53, 0.2)',
+            textShadow: '0 0 10px rgba(0, 212, 255, 0.55)'
           },
           '100%': {
-            boxShadow: '0 0 36px rgba(0, 246, 163, 0.6), 0 0 72px rgba(0, 246, 163, 0.32)',
-            textShadow: '0 0 20px rgba(0, 246, 163, 0.85)'
+            boxShadow: '0 0 36px rgba(0, 212, 255, 0.55), 0 0 72px rgba(255, 107, 53, 0.3)',
+            textShadow: '0 0 20px rgba(0, 212, 255, 0.85)'
           },
         },
         cyberpunkFlicker: {
@@ -140,10 +140,10 @@ export default {
         },
       },
       backgroundImage: {
-        'cyberpunk-grid': 'linear-gradient(rgba(0, 246, 163, 0.14) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 246, 163, 0.14) 1px, transparent 1px)',
+        'cyberpunk-grid': 'linear-gradient(rgba(0, 212, 255, 0.14) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 212, 255, 0.14) 1px, transparent 1px)',
         'cyberpunk-gradient': 'linear-gradient(135deg, #050014 0%, #0b1220 55%, #050014 100%)',
-        'neon-gradient-teal': 'linear-gradient(135deg, #00f6a3 0%, #00b871 100%)',
-        'neon-gradient-pink': 'linear-gradient(135deg, #ff0f7b 0%, #bd0061 100%)',
+        'neon-gradient-teal': 'linear-gradient(135deg, #00d4ff 0%, #007bb8 100%)',
+        'neon-gradient-pink': 'linear-gradient(135deg, #ff6b35 0%, #cc4927 100%)',
         'neon-gradient-blue': 'linear-gradient(135deg, #2f8cff 0%, #1153a8 100%)',
       },
     },

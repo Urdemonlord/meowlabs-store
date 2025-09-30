@@ -34,8 +34,8 @@ const UserAccount: React.FC<UserAccountProps> = ({ onNavigate }) => {
 
   const getStatusColor = (status: string) => {
     const colors = {
-      'completed': 'bg-green-500/20 text-green-400 border-green-500/30',
-      'pending': 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30',
+      'completed': 'bg-cyberpunk-accent-cyan/15 text-cyberpunk-accent-cyan border-cyberpunk-accent-cyan/30',
+      'pending': 'bg-cyberpunk-accent-pink/15 text-cyberpunk-accent-pink border-cyberpunk-accent-pink/30',
       'failed': 'bg-red-500/20 text-red-400 border-red-500/30',
       'refunded': 'bg-cyberpunk-secondary-bg/40 text-cyberpunk-text-secondary border-cyberpunk-accent-cyan/20'
     };
@@ -65,7 +65,7 @@ const UserAccount: React.FC<UserAccountProps> = ({ onNavigate }) => {
           <p className="text-cyberpunk-text-secondary mb-8">Silakan login untuk mengakses halaman ini</p>
           <button
             onClick={() => onNavigate('login')}
-            className="px-8 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-xl hover:from-purple-600 hover:to-blue-600 transition-colors"
+            className="px-8 py-3 bg-gradient-to-r from-cyberpunk-accent-cyan to-cyberpunk-accent-pink text-cyberpunk-dark font-semibold rounded-xl transition-colors shadow-cyberpunk"
           >
             Login Sekarang
           </button>
@@ -89,7 +89,7 @@ const UserAccount: React.FC<UserAccountProps> = ({ onNavigate }) => {
             <div className="bg-gradient-to-b from-cyberpunk-secondary-bg/60 to-cyberpunk-primary-bg/60 rounded-2xl p-6 border border-cyberpunk-accent-cyan/20">
               {/* User Info */}
               <div className="text-center mb-6 pb-6 border-b border-cyberpunk-accent-cyan/25">
-                <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-20 h-20 bg-gradient-to-br from-cyberpunk-accent-cyan to-cyberpunk-accent-pink rounded-full flex items-center justify-center mx-auto mb-4">
                   {user.avatar ? (
                     <img src={user.avatar} alt={user.name} className="w-full h-full rounded-full object-cover" />
                   ) : (
@@ -99,7 +99,7 @@ const UserAccount: React.FC<UserAccountProps> = ({ onNavigate }) => {
                 <h3 className="text-lg font-semibold text-white">{user.name}</h3>
                 <p className="text-cyberpunk-text-secondary text-sm">{user.email}</p>
                 {user.isVerified && (
-                  <span className="inline-flex items-center px-2 py-1 bg-green-500/20 text-green-400 border border-green-500/30 rounded-full text-xs mt-2">
+                  <span className="inline-flex items-center px-2 py-1 bg-cyberpunk-accent-cyan/15 text-cyberpunk-accent-cyan border border-cyberpunk-accent-cyan/30 rounded-full text-xs mt-2">
                     ✓ Verified
                   </span>
                 )}
@@ -111,7 +111,7 @@ const UserAccount: React.FC<UserAccountProps> = ({ onNavigate }) => {
                   onClick={() => setActiveTab('profile')}
                   className={`w-full flex items-center px-4 py-3 rounded-xl transition-colors ${
                     activeTab === 'profile'
-                      ? 'bg-purple-500/20 text-purple-400 border border-purple-500/30'
+                      ? 'bg-cyberpunk-accent-cyan/15 text-cyberpunk-accent-cyan border border-cyberpunk-accent-cyan/40'
                       : 'text-cyberpunk-text-secondary hover:bg-cyberpunk-secondary-bg/50'
                   }`}
                 >
@@ -122,7 +122,7 @@ const UserAccount: React.FC<UserAccountProps> = ({ onNavigate }) => {
                   onClick={() => setActiveTab('purchases')}
                   className={`w-full flex items-center px-4 py-3 rounded-xl transition-colors ${
                     activeTab === 'purchases'
-                      ? 'bg-purple-500/20 text-purple-400 border border-purple-500/30'
+                      ? 'bg-cyberpunk-accent-cyan/15 text-cyberpunk-accent-cyan border border-cyberpunk-accent-cyan/40'
                       : 'text-cyberpunk-text-secondary hover:bg-cyberpunk-secondary-bg/50'
                   }`}
                 >
@@ -133,7 +133,7 @@ const UserAccount: React.FC<UserAccountProps> = ({ onNavigate }) => {
                   onClick={() => setActiveTab('downloads')}
                   className={`w-full flex items-center px-4 py-3 rounded-xl transition-colors ${
                     activeTab === 'downloads'
-                      ? 'bg-purple-500/20 text-purple-400 border border-purple-500/30'
+                      ? 'bg-cyberpunk-accent-cyan/15 text-cyberpunk-accent-cyan border border-cyberpunk-accent-cyan/40'
                       : 'text-cyberpunk-text-secondary hover:bg-cyberpunk-secondary-bg/50'
                   }`}
                 >
@@ -162,7 +162,7 @@ const UserAccount: React.FC<UserAccountProps> = ({ onNavigate }) => {
                     <input
                       type="text"
                       value={user.name}
-                      className="w-full px-4 py-3 border border-cyberpunk-accent-cyan/30 rounded-xl bg-cyberpunk-secondary-bg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                      className="w-full px-4 py-3 border border-cyberpunk-accent-cyan/30 rounded-xl bg-cyberpunk-secondary-bg text-white focus:outline-none focus:ring-2 focus:ring-cyberpunk-accent-cyan"
                       readOnly
                     />
                   </div>
@@ -171,7 +171,7 @@ const UserAccount: React.FC<UserAccountProps> = ({ onNavigate }) => {
                     <input
                       type="email"
                       value={user.email}
-                      className="w-full px-4 py-3 border border-cyberpunk-accent-cyan/30 rounded-xl bg-cyberpunk-secondary-bg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                      className="w-full px-4 py-3 border border-cyberpunk-accent-cyan/30 rounded-xl bg-cyberpunk-secondary-bg text-white focus:outline-none focus:ring-2 focus:ring-cyberpunk-accent-cyan"
                       readOnly
                     />
                   </div>
@@ -180,7 +180,7 @@ const UserAccount: React.FC<UserAccountProps> = ({ onNavigate }) => {
                     <input
                       type="text"
                       value={formatDate(user.createdAt)}
-                      className="w-full px-4 py-3 border border-cyberpunk-accent-cyan/30 rounded-xl bg-cyberpunk-secondary-bg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                      className="w-full px-4 py-3 border border-cyberpunk-accent-cyan/30 rounded-xl bg-cyberpunk-secondary-bg text-white focus:outline-none focus:ring-2 focus:ring-cyberpunk-accent-cyan"
                       readOnly
                     />
                   </div>
@@ -188,9 +188,9 @@ const UserAccount: React.FC<UserAccountProps> = ({ onNavigate }) => {
                     <label className="block text-sm font-medium text-cyberpunk-text-secondary mb-2">Status Akun</label>
                     <div className="flex items-center">
                       <span className={`px-3 py-1 rounded-full text-sm font-medium border ${
-                        user.isVerified 
-                          ? 'bg-green-500/20 text-green-400 border-green-500/30'
-                          : 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30'
+                        user.isVerified
+                          ? 'bg-cyberpunk-accent-cyan/15 text-cyberpunk-accent-cyan border-cyberpunk-accent-cyan/30'
+                          : 'bg-cyberpunk-accent-pink/15 text-cyberpunk-accent-pink border-cyberpunk-accent-pink/30'
                       }`}>
                         {user.isVerified ? 'Terverifikasi' : 'Belum Terverifikasi'}
                       </span>
@@ -198,7 +198,7 @@ const UserAccount: React.FC<UserAccountProps> = ({ onNavigate }) => {
                   </div>
                 </div>
                 <div className="mt-8">
-                  <button className="px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-xl hover:from-purple-600 hover:to-blue-600 transition-colors">
+                  <button className="px-6 py-3 bg-gradient-to-r from-cyberpunk-accent-cyan to-cyberpunk-accent-pink text-cyberpunk-dark font-semibold rounded-xl transition-colors shadow-cyberpunk">
                     Edit Profil
                   </button>
                 </div>
@@ -217,7 +217,7 @@ const UserAccount: React.FC<UserAccountProps> = ({ onNavigate }) => {
                       <p className="text-cyberpunk-text-secondary mb-6">Mulai berbelanja untuk melihat riwayat pembelian Anda</p>
                       <button
                         onClick={() => onNavigate('products')}
-                        className="px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-xl hover:from-purple-600 hover:to-blue-600 transition-colors"
+                        className="px-6 py-3 bg-gradient-to-r from-cyberpunk-accent-cyan to-cyberpunk-accent-pink text-cyberpunk-dark font-semibold rounded-xl transition-colors shadow-cyberpunk"
                       >
                         Mulai Belanja
                       </button>
@@ -308,7 +308,7 @@ const UserAccount: React.FC<UserAccountProps> = ({ onNavigate }) => {
                                     </div>
                                   </div>
                                 </div>
-                                <button className="flex items-center px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-xl hover:from-purple-600 hover:to-blue-600 transition-colors">
+                                <button className="flex items-center px-6 py-3 bg-gradient-to-r from-cyberpunk-accent-cyan to-cyberpunk-accent-pink text-cyberpunk-dark font-semibold rounded-xl transition-colors shadow-cyberpunk">
                                   <Download className="w-4 h-4 mr-2" />
                                   Download
                                 </button>

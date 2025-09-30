@@ -46,7 +46,7 @@
   
   h1, h2, h3, h4, h5, h6 {
     @apply font-display font-semibold text-cyberpunk-text-primary;
-    text-shadow: 0 0 10px rgba(0, 255, 198, 0.4);
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
   }
   
   h1 {
@@ -140,7 +140,7 @@
   /* Cyberpunk text gradients */
   .text-cyberpunk-gradient-cyan {
     @apply bg-gradient-to-r from-cyberpunk-accent-cyan to-cyberpunk-accent-pink bg-clip-text text-transparent;
-    text-shadow: 0 0 10px rgba(0, 255, 198, 0.5);
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
   }
   
   .text-cyberpunk-gradient-pink {
@@ -150,7 +150,7 @@
   
   .text-cyberpunk-gradient-mixed {
     @apply bg-gradient-to-r from-cyberpunk-accent-cyan to-cyberpunk-accent-pink bg-clip-text text-transparent;
-    text-shadow: 0 0 10px rgba(0, 255, 198, 0.5);
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
   }
   
   /* Cyberpunk animations */

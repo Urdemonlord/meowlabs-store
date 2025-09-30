@@ -77,7 +77,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBackToProducts
                   key={index}
                   onClick={() => setSelectedImage(image)}
                   className={`w-20 h-20 rounded-lg overflow-hidden border-2 transition-colors ${
-                    selectedImage === image ? 'border-purple-500' : 'border-cyberpunk-accent-cyan/30 hover:border-cyberpunk-accent-cyan/60'
+                    selectedImage === image ? 'border-cyberpunk-accent-cyan' : 'border-cyberpunk-accent-cyan/30 hover:border-cyberpunk-accent-cyan/60'
                   }`}
                 >
                   <img
@@ -94,17 +94,17 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBackToProducts
           <div className="space-y-6">
             {/* Category */}
             <div className="flex items-center space-x-4">
-              <span className="px-3 py-1 bg-purple-500/20 text-purple-400 border border-purple-500/30 rounded-full text-sm font-medium">
+              <span className="px-3 py-1 bg-cyberpunk-accent-cyan/15 text-cyberpunk-accent-cyan border border-cyberpunk-accent-cyan/30 rounded-full text-sm font-medium">
                 {getCategoryName(product.category)}
               </span>
               {product.isDigital && (
-                <div className="flex items-center text-green-400 text-sm">
+                <div className="flex items-center text-cyberpunk-accent-cyan text-sm">
                   <Download className="w-4 h-4 mr-1" />
                   Digital Download
                 </div>
               )}
               {product.printOnDemand && (
-                <div className="flex items-center text-blue-400 text-sm">
+                <div className="flex items-center text-cyberpunk-accent-pink text-sm">
                   <Palette className="w-4 h-4 mr-1" />
                   Print on Demand
                 </div>
@@ -147,7 +147,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBackToProducts
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {product.features.map((feature, index) => (
                   <div key={index} className="flex items-center text-cyberpunk-text-secondary">
-                    <Check className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
+                    <Check className="w-5 h-5 text-cyberpunk-accent-cyan mr-3 flex-shrink-0" />
                     {feature}
                   </div>
                 ))}
@@ -170,7 +170,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBackToProducts
                           onClick={() => setSelectedOptions({...selectedOptions, size})}
                           className={`px-4 py-2 border rounded-lg transition-colors ${
                             selectedOptions.size === size
-                              ? 'border-purple-500 bg-purple-500/20 text-purple-400'
+                              ? 'border-cyberpunk-accent-cyan bg-cyberpunk-accent-cyan/15 text-cyberpunk-accent-cyan'
                               : 'border-cyberpunk-accent-cyan/30 text-cyberpunk-text-secondary hover:border-cyberpunk-accent-cyan/60'
                           }`}
                         >
@@ -192,7 +192,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBackToProducts
                           onClick={() => setSelectedOptions({...selectedOptions, color})}
                           className={`px-4 py-2 border rounded-lg transition-colors ${
                             selectedOptions.color === color
-                              ? 'border-purple-500 bg-purple-500/20 text-purple-400'
+                              ? 'border-cyberpunk-accent-pink bg-cyberpunk-accent-pink/15 text-cyberpunk-accent-pink'
                               : 'border-cyberpunk-accent-cyan/30 text-cyberpunk-text-secondary hover:border-cyberpunk-accent-cyan/60'
                           }`}
                         >
@@ -214,7 +214,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBackToProducts
                           onClick={() => setSelectedOptions({...selectedOptions, material})}
                           className={`px-4 py-2 border rounded-lg transition-colors ${
                             selectedOptions.material === material
-                              ? 'border-purple-500 bg-purple-500/20 text-purple-400'
+                              ? 'border-cyberpunk-accent-cyan bg-cyberpunk-accent-cyan/15 text-cyberpunk-accent-cyan'
                               : 'border-cyberpunk-accent-cyan/30 text-cyberpunk-text-secondary hover:border-cyberpunk-accent-cyan/60'
                           }`}
                         >
@@ -230,14 +230,14 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBackToProducts
             {/* Guarantees */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="flex items-center p-4 bg-cyberpunk-secondary-bg/50 rounded-xl border border-cyberpunk-accent-cyan/20">
-                <Shield className="w-6 h-6 text-blue-400 mr-3" />
+                <Shield className="w-6 h-6 text-cyberpunk-accent-cyan mr-3" />
                 <div>
                   <div className="text-white font-medium">Garansi 30 Hari</div>
                   <div className="text-cyberpunk-text-secondary text-sm">Uang kembali jika tidak puas</div>
                 </div>
               </div>
               <div className="flex items-center p-4 bg-cyberpunk-secondary-bg/50 rounded-xl border border-cyberpunk-accent-cyan/20">
-                <Zap className="w-6 h-6 text-purple-400 mr-3" />
+                <Zap className="w-6 h-6 text-cyberpunk-accent-pink mr-3" />
                 <div>
                   <div className="text-white font-medium">Akses Selamanya</div>
                   <div className="text-cyberpunk-text-secondary text-sm">Download kapan saja</div>
@@ -249,7 +249,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBackToProducts
             <div className="space-y-4">
               <button
                 onClick={handleAddToCart}
-                className="w-full flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-xl hover:from-purple-600 hover:to-blue-600 transition-colors transform hover:scale-105 shadow-lg hover:shadow-purple-500/25"
+                className="w-full flex items-center justify-center px-8 py-4 bg-gradient-to-r from-cyberpunk-accent-cyan to-cyberpunk-accent-pink text-cyberpunk-dark font-semibold rounded-xl transition-all hover:scale-105 shadow-cyberpunk hover:shadow-cyberpunk-lg"
               >
                 <ShoppingCart className="w-5 h-5 mr-2" />
                 Tambah ke Keranjang

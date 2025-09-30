@@ -31,10 +31,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onClick }) => {
 
   const getCategoryColor = (category: string) => {
     const colors: { [key: string]: string } = {
-      'ebook': 'bg-cyberpunk-accent-green/20 text-cyberpunk-accent-green border-cyberpunk-accent-green/30',
-      'template': 'bg-cyberpunk-neon-teal/20 text-cyberpunk-neon-teal border-cyberpunk-neon-teal/30',
-      'source-code': 'bg-cyberpunk-neon-pink/20 text-cyberpunk-neon-pink border-cyberpunk-neon-pink/30',
-      'merchandise': 'bg-cyberpunk-neon-blue/20 text-cyberpunk-neon-blue border-cyberpunk-neon-blue/30'
+      'ebook': 'bg-cyberpunk-accent-cyan/20 text-cyberpunk-accent-cyan border-cyberpunk-accent-cyan/30',
+      'template': 'bg-secondary-500/20 text-secondary-200 border-secondary-500/30',
+      'source-code': 'bg-accent-500/20 text-accent-200 border-accent-500/30',
+      'merchandise': 'bg-cyberpunk-accent-pink/20 text-cyberpunk-accent-pink border-cyberpunk-accent-pink/30'
     };
     return colors[category] || 'bg-cyberpunk-text-light/20 text-cyberpunk-text-light border-cyberpunk-text-light/30';
   };
@@ -80,7 +80,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onClick }) => {
 
       {/* Content */}
       <div className="p-6">
-        <h3 className="text-lg font-semibold text-cyberpunk-text-white mb-2 line-clamp-2 group-hover:text-cyberpunk-neon-teal transition-colors text-shadow-cyberpunk">
+        <h3 className="text-lg font-semibold text-cyberpunk-text-white mb-2 line-clamp-2 group-hover:text-cyberpunk-accent-cyan transition-colors text-shadow-cyberpunk">
           {product.title}
         </h3>
         <p className="text-cyberpunk-text-light text-sm mb-4 line-clamp-2">
@@ -92,13 +92,13 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onClick }) => {
           {product.features.slice(0, 2).map((feature, index) => (
             <span
               key={index}
-              className="text-xs px-2 py-1 bg-cyberpunk-neon-teal/20 text-cyberpunk-neon-teal rounded-md border border-cyberpunk-neon-teal/30"
+              className="text-xs px-2 py-1 bg-cyberpunk-accent-cyan/20 text-cyberpunk-accent-cyan rounded-md border border-cyberpunk-accent-cyan/30"
             >
               {feature}
             </span>
           ))}
           {product.features.length > 2 && (
-            <span className="text-xs px-2 py-1 bg-cyberpunk-neon-teal/20 text-cyberpunk-neon-teal rounded-md border border-cyberpunk-neon-teal/30">
+            <span className="text-xs px-2 py-1 bg-cyberpunk-accent-cyan/20 text-cyberpunk-accent-cyan rounded-md border border-cyberpunk-accent-cyan/30">
               +{product.features.length - 2} more
             </span>
           )}
@@ -112,7 +112,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onClick }) => {
             </div>
           </div>
           <div className="flex items-center space-x-1">
-            <Star className="w-4 h-4 text-cyberpunk-neon-teal fill-current" />
+            <Star className="w-4 h-4 text-cyberpunk-accent-cyan fill-current" />
             <span className="text-sm text-cyberpunk-text-light">4.8</span>
           </div>
         </div>
