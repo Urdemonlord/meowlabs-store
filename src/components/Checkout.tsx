@@ -90,7 +90,7 @@ const Checkout: React.FC<CheckoutProps> = ({ onSuccess }) => {
                     type="text"
                     value={customerInfo.name}
                     onChange={(e) => setCustomerInfo({ ...customerInfo, name: e.target.value })}
-                    className="w-full px-4 py-3 border border-cyberpunk-accent-cyan/30 rounded-xl bg-cyberpunk-secondary-bg text-white placeholder-cyberpunk-text-secondary/70 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    className="w-full px-4 py-3 border border-cyberpunk-accent-cyan/30 rounded-xl bg-cyberpunk-secondary-bg text-white placeholder-cyberpunk-text-secondary/70 focus:outline-none focus:ring-2 focus:ring-cyberpunk-accent-cyan"
                     placeholder="Masukkan nama lengkap"
                     required
                   />
@@ -103,7 +103,7 @@ const Checkout: React.FC<CheckoutProps> = ({ onSuccess }) => {
                     type="email"
                     value={customerInfo.email}
                     onChange={(e) => setCustomerInfo({ ...customerInfo, email: e.target.value })}
-                    className="w-full px-4 py-3 border border-cyberpunk-accent-cyan/30 rounded-xl bg-cyberpunk-secondary-bg text-white placeholder-cyberpunk-text-secondary/70 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    className="w-full px-4 py-3 border border-cyberpunk-accent-cyan/30 rounded-xl bg-cyberpunk-secondary-bg text-white placeholder-cyberpunk-text-secondary/70 focus:outline-none focus:ring-2 focus:ring-cyberpunk-accent-cyan"
                     placeholder="email@example.com"
                     required
                   />
@@ -116,7 +116,7 @@ const Checkout: React.FC<CheckoutProps> = ({ onSuccess }) => {
                     type="tel"
                     value={customerInfo.phone}
                     onChange={(e) => setCustomerInfo({ ...customerInfo, phone: e.target.value })}
-                    className="w-full px-4 py-3 border border-cyberpunk-accent-cyan/30 rounded-xl bg-cyberpunk-secondary-bg text-white placeholder-cyberpunk-text-secondary/70 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    className="w-full px-4 py-3 border border-cyberpunk-accent-cyan/30 rounded-xl bg-cyberpunk-secondary-bg text-white placeholder-cyberpunk-text-secondary/70 focus:outline-none focus:ring-2 focus:ring-cyberpunk-accent-cyan"
                     placeholder="08xxxxxxxxxx"
                     required
                   />
@@ -135,7 +135,7 @@ const Checkout: React.FC<CheckoutProps> = ({ onSuccess }) => {
                       key={method.id}
                       className={`flex items-center p-4 border rounded-xl cursor-pointer transition-colors ${
                         selectedPayment === method.id
-                          ? 'border-purple-500 bg-purple-500/10'
+                          ? 'border-cyberpunk-accent-cyan bg-cyberpunk-accent-cyan/10'
                           : 'border-cyberpunk-accent-cyan/30 hover:border-cyberpunk-accent-cyan/60'
                       }`}
                     >
@@ -154,12 +154,12 @@ const Checkout: React.FC<CheckoutProps> = ({ onSuccess }) => {
                           <div className="text-cyberpunk-text-secondary text-sm">{method.description}</div>
                         </div>
                         {method.fee > 0 && (
-                          <div className="text-purple-400 text-sm">
+                          <div className="text-cyberpunk-accent-cyan text-sm">
                             +{formatPrice(method.fee)}
                           </div>
                         )}
                         {selectedPayment === method.id && (
-                          <Check className="w-5 h-5 text-purple-400 ml-2" />
+                          <Check className="w-5 h-5 text-cyberpunk-accent-cyan ml-2" />
                         )}
                       </div>
                     </label>
@@ -212,7 +212,7 @@ const Checkout: React.FC<CheckoutProps> = ({ onSuccess }) => {
                 )}
                 <div className="flex justify-between items-center text-lg font-semibold text-white border-t border-cyberpunk-accent-cyan/25 pt-3">
                   <span>Total</span>
-                  <span className="text-purple-400">
+                  <span className="text-cyberpunk-accent-cyan">
                     {formatPrice(finalTotal)}
                   </span>
                 </div>
@@ -222,7 +222,7 @@ const Checkout: React.FC<CheckoutProps> = ({ onSuccess }) => {
               <button
                 onClick={handleSubmit}
                 disabled={isProcessing || !customerInfo.name || !customerInfo.email || !customerInfo.phone}
-                className="w-full mt-6 flex items-center justify-center px-6 py-4 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-xl hover:from-purple-600 hover:to-blue-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105 shadow-lg hover:shadow-purple-500/25"
+                className="w-full mt-6 flex items-center justify-center px-6 py-4 bg-gradient-to-r from-cyberpunk-accent-cyan to-cyberpunk-accent-pink text-cyberpunk-primary-bg font-semibold rounded-xl hover:from-cyberpunk-accent-cyan/90 hover:to-cyberpunk-accent-pink/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105 shadow-lg hover:shadow-cyberpunk"
               >
                 {isProcessing ? (
                   <>

@@ -9,10 +9,17 @@ const Footer: React.FC = () => {
           {/* Brand */}
           <div className="col-span-1 lg:col-span-2">
             <div className="flex items-center mb-4">
-              <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center mr-3">
-                <span className="text-white font-bold text-sm">ML</span>
+              <div className="w-10 h-10 mr-3">
+                <img 
+                  src="/img/logo-meowlabs.webp" 
+                  alt="Meow Labs Logo" 
+                  className="w-full h-full object-contain"
+                  onError={(e) => {
+                    e.currentTarget.src = "/img/logo-meowlabs.svg";
+                  }}
+                />
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+              <span className="text-xl font-bold text-cyberpunk-gradient-cyan">
                 MeowLabs.store
               </span>
             </div>
@@ -24,14 +31,14 @@ const Footer: React.FC = () => {
             
             {/* Social Links */}
             <div className="flex space-x-4">
-              <a href="#" className="p-2 bg-cyberpunk-secondary-bg hover:bg-purple-500 rounded-lg transition-colors">
-                <Instagram className="w-5 h-5 text-cyberpunk-text-secondary hover:text-white" />
+              <a href="#" className="p-2 bg-cyberpunk-secondary-bg hover:bg-cyberpunk-accent-cyan rounded-lg transition-colors">
+                <Instagram className="w-5 h-5 text-cyberpunk-text-secondary hover:text-cyberpunk-primary-bg" />
               </a>
-              <a href="#" className="p-2 bg-cyberpunk-secondary-bg hover:bg-blue-500 rounded-lg transition-colors">
-                <Twitter className="w-5 h-5 text-cyberpunk-text-secondary hover:text-white" />
+              <a href="#" className="p-2 bg-cyberpunk-secondary-bg hover:bg-cyberpunk-accent-cyan rounded-lg transition-colors">
+                <Twitter className="w-5 h-5 text-cyberpunk-text-secondary hover:text-cyberpunk-primary-bg" />
               </a>
-              <a href="#" className="p-2 bg-cyberpunk-secondary-bg hover:bg-cyberpunk-secondary-bg/70 rounded-lg transition-colors">
-                <Github className="w-5 h-5 text-cyberpunk-text-secondary hover:text-white" />
+              <a href="#" className="p-2 bg-cyberpunk-secondary-bg hover:bg-cyberpunk-accent-cyan rounded-lg transition-colors">
+                <Github className="w-5 h-5 text-cyberpunk-text-secondary hover:text-cyberpunk-primary-bg" />
               </a>
             </div>
           </div>
@@ -41,27 +48,27 @@ const Footer: React.FC = () => {
             <h3 className="text-white font-semibold mb-4">Kategori Produk</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-cyberpunk-text-secondary hover:text-purple-400 transition-colors text-sm">
+                <a href="#" className="text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan transition-colors text-sm">
                   Ebook Digital
                 </a>
               </li>
               <li>
-                <a href="#" className="text-cyberpunk-text-secondary hover:text-purple-400 transition-colors text-sm">
+                <a href="#" className="text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan transition-colors text-sm">
                   Template Website
                 </a>
               </li>
               <li>
-                <a href="#" className="text-cyberpunk-text-secondary hover:text-purple-400 transition-colors text-sm">
+                <a href="#" className="text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan transition-colors text-sm">
                   Source Code
                 </a>
               </li>
               <li>
-                <a href="#" className="text-cyberpunk-text-secondary hover:text-purple-400 transition-colors text-sm">
+                <a href="#" className="text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan transition-colors text-sm">
                   Merchandise
                 </a>
               </li>
               <li>
-                <a href="#" className="text-cyberpunk-text-secondary hover:text-purple-400 transition-colors text-sm">
+                <a href="#" className="text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan transition-colors text-sm">
                   Bundle Deals
                 </a>
               </li>
@@ -73,13 +80,13 @@ const Footer: React.FC = () => {
             <h3 className="text-white font-semibold mb-4">Hubungi Kami</h3>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="flex items-center text-cyberpunk-text-secondary hover:text-green-400 transition-colors text-sm">
+                <a href="#" className="flex items-center text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan transition-colors text-sm">
                   <MessageCircle className="w-4 h-4 mr-2" />
                   WhatsApp Support
                 </a>
               </li>
               <li>
-                <a href="mailto:hello@meowlabs.store" className="flex items-center text-cyberpunk-text-secondary hover:text-blue-400 transition-colors text-sm">
+                <a href="mailto:hello@meowlabs.store" className="flex items-center text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan transition-colors text-sm">
                   <Mail className="w-4 h-4 mr-2" />
                   hello@meowlabs.store
                 </a>
@@ -104,13 +111,13 @@ const Footer: React.FC = () => {
               © 2025 MeowLabs.store. All rights reserved.
             </div>
             <div className="flex space-x-6 text-sm">
-              <a href="#" className="text-cyberpunk-text-secondary hover:text-purple-400 transition-colors">
+              <a href="#" className="text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan transition-colors">
                 Kebijakan Privasi
               </a>
-              <a href="#" className="text-cyberpunk-text-secondary hover:text-purple-400 transition-colors">
+              <a href="#" className="text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan transition-colors">
                 Syarat & Ketentuan
               </a>
-              <a href="#" className="text-cyberpunk-text-secondary hover:text-purple-400 transition-colors">
+              <a href="#" className="text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan transition-colors">
                 Garansi & Refund
               </a>
             </div>

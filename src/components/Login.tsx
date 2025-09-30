@@ -85,7 +85,7 @@ const Login: React.FC<LoginProps> = ({ onNavigate }) => {
         {/* Header */}
         <div className="text-center">
           <div className="flex items-center justify-center mb-6">
-            <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg flex items-center justify-center">
+            <div className="w-12 h-12 bg-gradient-to-br from-cyberpunk-accent-cyan to-cyberpunk-accent-pink rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-lg">ML</span>
             </div>
           </div>
@@ -121,7 +121,7 @@ const Login: React.FC<LoginProps> = ({ onNavigate }) => {
                   className={`w-full px-4 py-3 border rounded-xl bg-cyberpunk-secondary-bg text-white placeholder-cyberpunk-text-secondary/70 focus:outline-none focus:ring-2 transition-colors ${
                     errors.name 
                       ? 'border-red-500 focus:ring-red-500' 
-                      : 'border-cyberpunk-accent-cyan/30 focus:ring-purple-500'
+                      : 'border-cyberpunk-accent-cyan/30 focus:ring-cyberpunk-accent-cyan'
                   }`}
                   placeholder="Masukkan nama lengkap"
                 />
@@ -146,7 +146,7 @@ const Login: React.FC<LoginProps> = ({ onNavigate }) => {
                   className={`w-full pl-10 pr-4 py-3 border rounded-xl bg-cyberpunk-secondary-bg text-white placeholder-cyberpunk-text-secondary/70 focus:outline-none focus:ring-2 transition-colors ${
                     errors.email 
                       ? 'border-red-500 focus:ring-red-500' 
-                      : 'border-cyberpunk-accent-cyan/30 focus:ring-purple-500'
+                      : 'border-cyberpunk-accent-cyan/30 focus:ring-cyberpunk-accent-cyan'
                   }`}
                   placeholder="email@example.com"
                 />
@@ -171,7 +171,7 @@ const Login: React.FC<LoginProps> = ({ onNavigate }) => {
                   className={`w-full pl-10 pr-12 py-3 border rounded-xl bg-cyberpunk-secondary-bg text-white placeholder-cyberpunk-text-secondary/70 focus:outline-none focus:ring-2 transition-colors ${
                     errors.password 
                       ? 'border-red-500 focus:ring-red-500' 
-                      : 'border-cyberpunk-accent-cyan/30 focus:ring-purple-500'
+                      : 'border-cyberpunk-accent-cyan/30 focus:ring-cyberpunk-accent-cyan'
                   }`}
                   placeholder="Masukkan password"
                 />
@@ -208,7 +208,7 @@ const Login: React.FC<LoginProps> = ({ onNavigate }) => {
                     className={`w-full pl-10 pr-4 py-3 border rounded-xl bg-cyberpunk-secondary-bg text-white placeholder-cyberpunk-text-secondary/70 focus:outline-none focus:ring-2 transition-colors ${
                       errors.confirmPassword 
                         ? 'border-red-500 focus:ring-red-500' 
-                        : 'border-cyberpunk-accent-cyan/30 focus:ring-purple-500'
+                        : 'border-cyberpunk-accent-cyan/30 focus:ring-cyberpunk-accent-cyan'
                     }`}
                     placeholder="Konfirmasi password"
                   />
@@ -222,7 +222,7 @@ const Login: React.FC<LoginProps> = ({ onNavigate }) => {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full flex items-center justify-center px-4 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-xl hover:from-purple-600 hover:to-blue-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full flex items-center justify-center px-4 py-3 bg-gradient-to-r from-cyberpunk-accent-cyan to-cyberpunk-accent-pink text-cyberpunk-primary-bg font-semibold rounded-xl hover:from-cyberpunk-accent-cyan/90 hover:to-cyberpunk-accent-pink/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoading ? (
                 <>
@@ -245,7 +245,7 @@ const Login: React.FC<LoginProps> = ({ onNavigate }) => {
                   setErrors({});
                   setFormData({ name: '', email: '', password: '', confirmPassword: '' });
                 }}
-                className="ml-2 text-purple-400 hover:text-purple-300 font-medium transition-colors"
+                className="ml-2 text-cyberpunk-accent-cyan hover:text-cyberpunk-accent-cyan/80 font-medium transition-colors"
               >
                 {isLoginMode ? 'Daftar sekarang' : 'Masuk di sini'}
               </button>
@@ -287,11 +287,11 @@ const Login: React.FC<LoginProps> = ({ onNavigate }) => {
         {/* Terms */}
         <p className="text-center text-xs text-cyberpunk-text-secondary">
           Dengan {isLoginMode ? 'masuk' : 'mendaftar'}, Anda menyetujui{' '}
-          <a href="#" className="text-purple-400 hover:text-purple-300">
+          <a href="#" className="text-cyberpunk-accent-cyan hover:text-cyberpunk-accent-cyan/80">
             Syarat & Ketentuan
           </a>{' '}
           dan{' '}
-          <a href="#" className="text-purple-400 hover:text-purple-300">
+          <a href="#" className="text-cyberpunk-accent-cyan hover:text-cyberpunk-accent-cyan/80">
             Kebijakan Privasi
           </a>{' '}
           MeowLabs

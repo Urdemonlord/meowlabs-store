@@ -27,7 +27,7 @@ const Cart: React.FC<CartProps> = ({ onCheckout }) => {
             </div>
             <h2 className="text-3xl font-bold text-white mb-4">Keranjang Kosong</h2>
             <p className="text-cyberpunk-text-secondary mb-8">Belum ada produk yang ditambahkan ke keranjang</p>
-            <button className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-xl hover:from-purple-600 hover:to-blue-600 transition-colors">
+            <button className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-cyberpunk-accent-cyan to-cyberpunk-accent-pink text-cyberpunk-primary-bg font-semibold rounded-xl hover:from-cyberpunk-accent-cyan/90 hover:to-cyberpunk-accent-pink/90 transition-colors">
               Mulai Belanja
             </button>
           </div>
@@ -90,7 +90,7 @@ const Cart: React.FC<CartProps> = ({ onCheckout }) => {
                         )}
                       </div>
                     )}
-                    <div className="text-purple-400 font-semibold mt-2">
+                    <div className="text-cyberpunk-accent-cyan font-semibold mt-2">
                       {formatPrice(item.product.price)}
                     </div>
                   </div>
@@ -148,7 +148,7 @@ const Cart: React.FC<CartProps> = ({ onCheckout }) => {
               <div className="border-t border-cyberpunk-accent-cyan/25 pt-4 mb-6">
                 <div className="flex justify-between items-center">
                   <span className="text-lg font-semibold text-white">Total</span>
-                  <span className="text-2xl font-bold text-purple-400">
+                  <span className="text-2xl font-bold text-cyberpunk-accent-cyan">
                     {formatPrice(total)}
                   </span>
                 </div>
@@ -156,7 +156,7 @@ const Cart: React.FC<CartProps> = ({ onCheckout }) => {
 
               <button
                 onClick={onCheckout}
-                className="w-full flex items-center justify-center px-6 py-4 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-xl hover:from-purple-600 hover:to-blue-600 transition-colors transform hover:scale-105 shadow-lg hover:shadow-purple-500/25"
+                className="w-full flex items-center justify-center px-6 py-4 bg-gradient-to-r from-cyberpunk-accent-cyan to-cyberpunk-accent-pink text-cyberpunk-primary-bg font-semibold rounded-xl hover:from-cyberpunk-accent-cyan/90 hover:to-cyberpunk-accent-pink/90 transition-colors transform hover:scale-105 shadow-lg hover:shadow-cyberpunk"
               >
                 Lanjut ke Checkout
                 <ArrowRight className="ml-2 w-5 h-5" />

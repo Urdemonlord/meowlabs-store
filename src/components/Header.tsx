@@ -17,8 +17,6 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
   const navigation: { label: string; page: Page }[] = [
     { label: 'Home', page: 'home' },
     { label: 'Products', page: 'products' },
-    { label: 'Product Detail Page', page: 'product-detail' },
-    { label: 'Checkout', page: 'checkout' },
     { label: 'Blog', page: 'blog' },
     { label: 'About', page: 'about' },
     { label: 'Contact', page: 'contact' },
@@ -33,8 +31,16 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
             className="flex items-center cursor-pointer group"
             onClick={() => onNavigate('home')}
           >
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-cyberpunk-accent-cyan to-cyberpunk-accent-pink flex items-center justify-center mr-3 shadow-cyberpunk">
-              <span className="text-cyberpunk-dark font-bold text-sm tracking-widest">ML</span>
+            <div className="w-10 h-10 mr-3 group-hover:scale-110 transition-transform">
+              <img 
+                src="/img/logo-meowlabs.webp" 
+                alt="Meow Labs Logo" 
+                className="w-full h-full object-contain"
+                onError={(e) => {
+                  // Fallback to SVG if WebP fails
+                  e.currentTarget.src = "/img/logo-meowlabs.svg";
+                }}
+              />
             </div>
             <span className="text-xl font-semibold text-white tracking-tight">
               Meow Labs

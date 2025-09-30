@@ -60,7 +60,7 @@ const ProductCatalog: React.FC<ProductCatalogProps> = ({ onProductClick, limit }
                   placeholder="Cari produk..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="block w-full pl-10 pr-3 py-3 border border-cyberpunk-accent-cyan/30 rounded-xl bg-cyberpunk-secondary-bg text-white placeholder-cyberpunk-text-secondary/70 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="block w-full pl-10 pr-3 py-3 border border-cyberpunk-accent-cyan/30 rounded-xl bg-cyberpunk-secondary-bg text-white placeholder-cyberpunk-text-secondary/70 focus:outline-none focus:ring-2 focus:ring-cyberpunk-accent-cyan focus:border-transparent"
                 />
               </div>
 
@@ -70,7 +70,7 @@ const ProductCatalog: React.FC<ProductCatalogProps> = ({ onProductClick, limit }
                 <select
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
-                  className="px-4 py-3 border border-cyberpunk-accent-cyan/30 rounded-xl bg-cyberpunk-secondary-bg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="px-4 py-3 border border-cyberpunk-accent-cyan/30 rounded-xl bg-cyberpunk-secondary-bg text-white focus:outline-none focus:ring-2 focus:ring-cyberpunk-accent-cyan"
                 >
                   {categories.map(category => (
                     <option key={category.id} value={category.id}>
@@ -89,7 +89,7 @@ const ProductCatalog: React.FC<ProductCatalogProps> = ({ onProductClick, limit }
                   onClick={() => setSelectedCategory(category.id)}
                   className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
                     selectedCategory === category.id
-                      ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white'
+                      ? 'bg-gradient-to-r from-cyberpunk-accent-cyan to-cyberpunk-accent-pink text-cyberpunk-primary-bg'
                       : 'bg-cyberpunk-secondary-bg text-cyberpunk-text-secondary hover:bg-cyberpunk-secondary-bg/80'
                   }`}
                 >
@@ -127,7 +127,7 @@ const ProductCatalog: React.FC<ProductCatalogProps> = ({ onProductClick, limit }
           <div className="text-center mt-12">
             <button 
               onClick={() => onProductClick(products[0])} // This would navigate to products page
-              className="inline-flex items-center px-8 py-3 border border-purple-500 text-purple-400 font-semibold rounded-xl hover:bg-purple-500 hover:text-white transition-colors"
+              className="inline-flex items-center px-8 py-3 border border-cyberpunk-accent-cyan text-cyberpunk-accent-cyan font-semibold rounded-xl hover:bg-cyberpunk-accent-cyan hover:text-cyberpunk-primary-bg transition-colors"
             >
               Lihat Semua Produk
             </button>

@@ -4,44 +4,46 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Cyberpunk Meow Labs color palette - tuned to match reference hero
+        // Cyberpunk Meow Labs color palette - tuned to match logo colors
         cyberpunk: {
-          'primary-bg': '#050014', // Deep violet-black base
-          'secondary-bg': '#0b1220', // Muted indigo panel background
-          'accent-cyan': '#00f6a3', // Neon mint accent
-          'accent-pink': '#ff0f7b', // Vivid magenta accent
+          'primary-bg': '#0a0a0a', // Deep black base
+          'secondary-bg': '#1a1a1a', // Dark gray panel background
+          'accent-cyan': '#00d4ff', // Bright cyan from logo
+          'accent-pink': '#ff6b35', // Orange accent from logo
+          'accent-orange': '#ff6b35', // Orange from logo
+          'accent-blue': '#00d4ff', // Blue from logo
           'text-primary': '#ffffff', // White text
-          'text-secondary': '#9aa3c2', // Muted bluish gray copy
-          'dark': '#050014', // Alias for primary background
-          'card': '#0f1a2f', // Card surface tone
-          'neon-teal': '#00f6a3', // Alias for accent cyan
-          'neon-pink': '#ff0f7b', // Alias for accent pink
-          'text-light': '#9aa3c2', // Alias for secondary text
+          'text-secondary': '#b0b0b0', // Light gray copy
+          'dark': '#0a0a0a', // Alias for primary background
+          'card': '#1a1a1a', // Card surface tone
+          'neon-teal': '#00d4ff', // Alias for accent cyan
+          'neon-pink': '#ff6b35', // Alias for accent orange
+          'text-light': '#b0b0b0', // Alias for secondary text
           'text-white': '#ffffff', // Alias for primary text
         },
         primary: {
-          50: '#e6fff4',
-          100: '#b8ffdf',
-          200: '#8affcc',
-          300: '#5cffba',
-          400: '#2dffab',
-          500: '#00f6a3', // Main neon mint accent
-          600: '#00d88a',
-          700: '#00b871',
-          800: '#009459',
-          900: '#006c40',
+          50: '#e6f7ff',
+          100: '#b8e6ff',
+          200: '#8ad4ff',
+          300: '#5cc2ff',
+          400: '#2db0ff',
+          500: '#00d4ff', // Main cyan from logo
+          600: '#00b8e6',
+          700: '#009ccc',
+          800: '#007fb3',
+          900: '#006299',
         },
         secondary: {
-          50: '#ffe6f2',
-          100: '#ffb8d7',
-          200: '#ff8abb',
-          300: '#ff5ca0',
-          400: '#ff2d8a',
-          500: '#ff0f7b', // Main magenta accent
-          600: '#e00070',
-          700: '#bd0061',
-          800: '#94004f',
-          900: '#6a003c',
+          50: '#fff4e6',
+          100: '#ffe0b8',
+          200: '#ffcc8a',
+          300: '#ffb85c',
+          400: '#ffa42d',
+          500: '#ff6b35', // Main orange from logo
+          600: '#e65a2e',
+          700: '#cc4927',
+          800: '#b33820',
+          900: '#992719',
         },
         accent: {
           50: '#edf5ff',
@@ -68,19 +70,21 @@ export default {
           900: '#0b1220', // Deep navy background
           950: '#040713',
         },
-        // Custom Meow Labs cyberpunk colors - exact match
+        // Custom Meow Labs cyberpunk colors - matching logo
         meow: {
-          'primary-bg': '#050014',
-          'secondary-bg': '#0b1220',
-          'accent-cyan': '#00f6a3',
-          'accent-pink': '#ff0f7b',
+          'primary-bg': '#0a0a0a',
+          'secondary-bg': '#1a1a1a',
+          'accent-cyan': '#00d4ff',
+          'accent-pink': '#ff6b35',
+          'accent-orange': '#ff6b35',
+          'accent-blue': '#00d4ff',
           'text-primary': '#ffffff',
-          'text-secondary': '#9aa3c2',
-          'dark': '#050014',
-          'card': '#0f1a2f',
-          'neon-teal': '#00f6a3',
-          'neon-pink': '#ff0f7b',
-          'text-light': '#9aa3c2',
+          'text-secondary': '#b0b0b0',
+          'dark': '#0a0a0a',
+          'card': '#1a1a1a',
+          'neon-teal': '#00d4ff',
+          'neon-pink': '#ff6b35',
+          'text-light': '#b0b0b0',
           'text-white': '#ffffff',
         }
       },
