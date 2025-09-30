@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShoppingCart, Menu, Search, User } from 'lucide-react';
+import { ShoppingCart, Menu, User } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 
@@ -13,106 +13,99 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
   const { user, isAuthenticated } = useAuth();
   const cartItemsCount = items.reduce((total, item) => total + item.quantity, 0);
 
+  const navigation = [
+    { label: 'Home', page: 'home' },
+    { label: 'About', page: 'home' },
+    { label: 'Services', page: 'products' },
+    { label: 'Package', page: 'products' },
+    { label: 'For Students', page: 'products' },
+    { label: 'Portfolio', page: 'products' },
+    { label: 'Blog', page: 'blog' },
+    { label: 'Contact', page: 'home' },
+  ];
+
   return (
-    <header className="sticky top-0 z-50 bg-cyberpunk-primary-bg/95 backdrop-blur-sm border-b border-cyberpunk-accent-cyan/30">
+    <header className="sticky top-0 z-50 border-b border-cyberpunk-accent-cyan/20 bg-cyberpunk-primary-bg/80 backdrop-blur-xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div 
+          <div
             className="flex items-center cursor-pointer group"
             onClick={() => onNavigate('home')}
           >
-            <div className="w-8 h-8 bg-cyberpunk-gradient-cyan rounded-lg flex items-center justify-center mr-3 group-hover:scale-110 transition-transform animate-cyberpunk-glow-pulse">
-              <span className="text-cyberpunk-primary-bg font-bold text-sm">ML</span>
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-cyberpunk-accent-cyan to-cyberpunk-accent-pink flex items-center justify-center mr-3 shadow-cyberpunk">
+              <span className="text-cyberpunk-dark font-bold text-sm tracking-widest">ML</span>
             </div>
-            <span className="text-xl font-bold text-cyberpunk-gradient-cyan text-shadow-cyberpunk">
-              MeowLabs.store
+            <span className="text-xl font-semibold text-white tracking-tight">
+              Meow Labs
             </span>
           </div>
 
           {/* Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <button
-              onClick={() => onNavigate('home')}
-              className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
-                currentPage === 'home' 
-                  ? 'text-cyberpunk-accent-cyan bg-cyberpunk-accent-cyan/10 text-shadow-cyberpunk' 
-                  : 'text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan'
-              }`}
-            >
-              Home
-            </button>
-            <button
-              onClick={() => onNavigate('products')}
-              className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
-                currentPage === 'products' 
-                  ? 'text-cyberpunk-accent-cyan bg-cyberpunk-accent-cyan/10 text-shadow-cyberpunk' 
-                  : 'text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan'
-              }`}
-            >
-              Produk
-            </button>
-            <button
-              onClick={() => onNavigate('blog')}
-              className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
-                currentPage === 'blog' || currentPage === 'blog-post'
-                  ? 'text-cyberpunk-accent-cyan bg-cyberpunk-accent-cyan/10 text-shadow-cyberpunk' 
-                  : 'text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan'
-              }`}
-            >
-              Blog
-            </button>
-            <button className="text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan px-3 py-2 text-sm font-medium">
-              About
-            </button>
-            <button className="text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan px-3 py-2 text-sm font-medium">
-              Contact
-            </button>
+          <nav className="hidden lg:flex items-center space-x-6">
+            {navigation.map((item) => {
+              const isActive =
+                item.page === currentPage ||
+                (item.page === 'blog' && (currentPage === 'blog' || currentPage === 'blog-post'));
+
+              return (
+                <button
+                  key={item.label}
+                  onClick={() => onNavigate(item.page)}
+                  className={`text-sm font-medium transition-colors ${
+                    isActive
+                      ? 'text-cyberpunk-accent-cyan'
+                      : 'text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan'
+                  }`}
+                >
+                  {item.label}
+                </button>
+              );
+            })}
           </nav>
 
           {/* Right section */}
-          <div className="flex items-center space-x-4">
-            {/* Search */}
-            <button className="p-2 text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan hover:bg-cyberpunk-accent-cyan/10 rounded-lg transition-colors">
-              <Search className="w-5 h-5" />
-            </button>
-
-            {/* Cart */}
-            <button 
+          <div className="flex items-center space-x-3">
+            <button
               onClick={() => onNavigate('cart')}
-              className="relative p-2 text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan hover:bg-cyberpunk-accent-cyan/10 rounded-lg transition-colors"
+              className="relative hidden sm:inline-flex items-center justify-center w-11 h-11 rounded-xl border border-cyberpunk-accent-cyan/40 text-cyberpunk-accent-cyan hover:bg-cyberpunk-accent-cyan/10 transition-colors"
             >
               <ShoppingCart className="w-5 h-5" />
               {cartItemsCount > 0 && (
-                <span className="absolute -top-1 -right-1 w-5 h-5 bg-cyberpunk-accent-cyan text-cyberpunk-primary-bg text-xs rounded-full flex items-center justify-center animate-cyberpunk-glow-pulse">
+                <span className="absolute -top-1 -right-1 w-5 h-5 bg-cyberpunk-accent-pink text-white text-xs rounded-full flex items-center justify-center shadow-cyberpunk-pink">
                   {cartItemsCount}
                 </span>
               )}
             </button>
 
-            {/* User Account */}
             {isAuthenticated ? (
-              <button 
+              <button
                 onClick={() => onNavigate('account')}
-                className="relative p-2 text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan hover:bg-cyberpunk-accent-cyan/10 rounded-lg transition-colors"
+                className="hidden sm:flex items-center space-x-2 px-3 py-2 rounded-xl bg-cyberpunk-secondary-bg/80 border border-cyberpunk-accent-cyan/30 text-cyberpunk-text-secondary hover:border-cyberpunk-accent-cyan/60 transition"
               >
                 {user?.avatar ? (
                   <img src={user.avatar} alt={user.name} className="w-6 h-6 rounded-full" />
                 ) : (
                   <User className="w-5 h-5" />
                 )}
+                <span className="text-sm font-medium">Akun</span>
               </button>
             ) : (
-              <button 
+              <button
                 onClick={() => onNavigate('login')}
-                className="btn-cyberpunk-outline"
+                className="hidden sm:flex items-center space-x-2 px-3 py-2 rounded-xl border border-cyberpunk-accent-cyan/40 text-cyberpunk-accent-cyan hover:bg-cyberpunk-accent-cyan/10 transition"
               >
-                Login
+                <User className="w-5 h-5" />
+                <span className="text-sm font-medium">Login</span>
               </button>
             )}
 
+            <button className="inline-flex items-center justify-center px-5 py-2 rounded-xl bg-cyberpunk-accent-cyan text-cyberpunk-dark font-semibold shadow-cyberpunk hover:shadow-cyberpunk-lg transition-transform hover:-translate-y-0.5">
+              Hubungi Kami
+            </button>
+
             {/* Mobile menu */}
-            <button className="md:hidden p-2 text-cyberpunk-text-secondary hover:text-cyberpunk-accent-cyan hover:bg-cyberpunk-accent-cyan/10 rounded-lg transition-colors">
+            <button className="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-xl border border-cyberpunk-accent-cyan/30 text-cyberpunk-accent-cyan">
               <Menu className="w-5 h-5" />
             </button>
           </div>

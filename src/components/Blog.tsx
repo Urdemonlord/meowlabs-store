@@ -32,14 +32,14 @@ const Blog: React.FC<BlogProps> = ({ onPostClick }) => {
   const regularPosts = filteredPosts.slice(1);
 
   return (
-    <div className="min-h-screen bg-gray-900 py-16">
+    <div className="min-h-screen bg-cyberpunk-primary-bg py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
             Blog <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">MeowLabs</span>
           </h1>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+          <p className="text-cyberpunk-text-secondary text-lg max-w-2xl mx-auto">
             Insight, tutorial, dan tips terbaru seputar teknologi, bisnis digital, dan pengembangan diri
           </p>
         </div>
@@ -49,14 +49,14 @@ const Blog: React.FC<BlogProps> = ({ onPostClick }) => {
           {/* Search */}
           <div className="flex-1 relative">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <Search className="h-5 w-5 text-gray-400" />
+              <Search className="h-5 w-5 text-cyberpunk-text-secondary" />
             </div>
             <input
               type="text"
               placeholder="Cari artikel..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="block w-full pl-10 pr-3 py-3 border border-gray-600 rounded-xl bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="block w-full pl-10 pr-3 py-3 border border-cyberpunk-accent-cyan/30 rounded-xl bg-cyberpunk-secondary-bg text-white placeholder-cyberpunk-text-secondary/70 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
             />
           </div>
 
@@ -67,7 +67,7 @@ const Blog: React.FC<BlogProps> = ({ onPostClick }) => {
               className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
                 selectedCategory === 'all'
                   ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white'
-                  : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                  : 'bg-cyberpunk-secondary-bg text-cyberpunk-text-secondary hover:bg-cyberpunk-secondary-bg/80'
               }`}
             >
               Semua
@@ -79,7 +79,7 @@ const Blog: React.FC<BlogProps> = ({ onPostClick }) => {
                 className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
                   selectedCategory === category.slug
                     ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white'
-                    : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                    : 'bg-cyberpunk-secondary-bg text-cyberpunk-text-secondary hover:bg-cyberpunk-secondary-bg/80'
                 }`}
               >
                 {category.name}
@@ -93,7 +93,7 @@ const Blog: React.FC<BlogProps> = ({ onPostClick }) => {
           <div className="mb-16">
             <h2 className="text-2xl font-bold text-white mb-8">Artikel Unggulan</h2>
             <div 
-              className="relative group cursor-pointer bg-gradient-to-r from-gray-800/50 to-gray-900/50 rounded-3xl overflow-hidden border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300"
+              className="relative group cursor-pointer bg-gradient-to-r from-cyberpunk-secondary-bg/60 to-cyberpunk-primary-bg/60 rounded-3xl overflow-hidden border border-cyberpunk-accent-cyan/20 hover:border-purple-500/50 transition-all duration-300"
               onClick={() => onPostClick(featuredPost)}
             >
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
@@ -103,7 +103,7 @@ const Blog: React.FC<BlogProps> = ({ onPostClick }) => {
                     alt={featuredPost.title}
                     className="w-full h-64 lg:h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent lg:hidden" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-cyberpunk-primary-bg/85 to-transparent lg:hidden" />
                 </div>
                 <div className="p-8 lg:p-12 flex flex-col justify-center">
                   <div className="flex flex-wrap gap-2 mb-4">
@@ -119,11 +119,11 @@ const Blog: React.FC<BlogProps> = ({ onPostClick }) => {
                   <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4 group-hover:text-purple-400 transition-colors">
                     {featuredPost.title}
                   </h3>
-                  <p className="text-gray-300 mb-6 line-clamp-3">
+                  <p className="text-cyberpunk-text-secondary mb-6 line-clamp-3">
                     {featuredPost.excerpt}
                   </p>
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-4 text-sm text-gray-400">
+                    <div className="flex items-center space-x-4 text-sm text-cyberpunk-text-secondary">
                       <div className="flex items-center">
                         <User className="w-4 h-4 mr-1" />
                         {featuredPost.author.name}
@@ -154,7 +154,7 @@ const Blog: React.FC<BlogProps> = ({ onPostClick }) => {
             {regularPosts.map(post => (
               <article
                 key={post.id}
-                className="group cursor-pointer bg-gradient-to-b from-gray-800/50 to-gray-900/50 rounded-2xl overflow-hidden border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 hover:transform hover:scale-105"
+                className="group cursor-pointer bg-gradient-to-b from-cyberpunk-secondary-bg/60 to-cyberpunk-primary-bg/60 rounded-2xl overflow-hidden border border-cyberpunk-accent-cyan/20 hover:border-purple-500/50 transition-all duration-300 hover:transform hover:scale-105"
                 onClick={() => onPostClick(post)}
               >
                 <div className="relative overflow-hidden">
@@ -163,7 +163,7 @@ const Blog: React.FC<BlogProps> = ({ onPostClick }) => {
                     alt={post.title}
                     className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-cyberpunk-primary-bg/85 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 
                 <div className="p-6">
@@ -171,7 +171,7 @@ const Blog: React.FC<BlogProps> = ({ onPostClick }) => {
                     {post.tags.slice(0, 2).map(tag => (
                       <span
                         key={tag}
-                        className="px-2 py-1 bg-gray-700/50 text-gray-300 rounded-md text-xs"
+                        className="px-2 py-1 bg-cyberpunk-secondary-bg/50 text-cyberpunk-text-secondary rounded-md text-xs"
                       >
                         {tag}
                       </span>
@@ -182,11 +182,11 @@ const Blog: React.FC<BlogProps> = ({ onPostClick }) => {
                     {post.title}
                   </h3>
                   
-                  <p className="text-gray-400 text-sm mb-4 line-clamp-3">
+                  <p className="text-cyberpunk-text-secondary text-sm mb-4 line-clamp-3">
                     {post.excerpt}
                   </p>
                   
-                  <div className="flex items-center justify-between text-xs text-gray-500">
+                  <div className="flex items-center justify-between text-xs text-cyberpunk-text-secondary">
                     <div className="flex items-center space-x-3">
                       <div className="flex items-center">
                         <img
@@ -214,11 +214,11 @@ const Blog: React.FC<BlogProps> = ({ onPostClick }) => {
           {/* No results */}
           {filteredPosts.length === 0 && (
             <div className="text-center py-12">
-              <div className="text-gray-400 mb-4">
+              <div className="text-cyberpunk-text-secondary mb-4">
                 <Search className="w-16 h-16 mx-auto mb-4 opacity-50" />
               </div>
               <h3 className="text-xl font-semibold text-white mb-2">Artikel tidak ditemukan</h3>
-              <p className="text-gray-400">Coba ubah kata kunci pencarian atau filter kategori</p>
+              <p className="text-cyberpunk-text-secondary">Coba ubah kata kunci pencarian atau filter kategori</p>
             </div>
           )}
         </div>
@@ -229,7 +229,7 @@ const Blog: React.FC<BlogProps> = ({ onPostClick }) => {
             <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">
               Jangan Lewatkan Update Terbaru
             </h3>
-            <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
+            <p className="text-cyberpunk-text-secondary mb-8 max-w-2xl mx-auto">
               Dapatkan artikel terbaru, tips eksklusif, dan insight menarik langsung di inbox Anda. 
               Gratis dan tanpa spam!
             </p>
@@ -237,7 +237,7 @@ const Blog: React.FC<BlogProps> = ({ onPostClick }) => {
               <input
                 type="email"
                 placeholder="Email Anda"
-                className="flex-1 px-4 py-3 border border-gray-600 rounded-xl bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="flex-1 px-4 py-3 border border-cyberpunk-accent-cyan/30 rounded-xl bg-cyberpunk-secondary-bg text-white placeholder-cyberpunk-text-secondary/70 focus:outline-none focus:ring-2 focus:ring-purple-500"
               />
               <button className="px-8 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white font-semibold rounded-xl hover:from-purple-600 hover:to-blue-600 transition-colors">
                 Subscribe
