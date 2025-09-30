@@ -9,15 +9,15 @@ const Hero: React.FC<HeroProps> = ({ onShopNow }) => {
   return (
     <section className="relative overflow-hidden">
       {/* === Gradient & Background Effects === */}
-      <div className="absolute inset-0 bg-cyberpunk-gradient-bg" />
-      <div className="absolute inset-0 flex justify-end">
+      <div className="absolute inset-0 bg-cyberpunk-gradient-bg -z-10" />
+      <div className="absolute inset-0 flex justify-end -z-10">
         <div
           className="hidden md:block w-1/2 h-full bg-cyberpunk-card/60"
           style={{ backgroundImage: "var(--cyberpunk-grid)", backgroundSize: "32px 32px" }}
         />
       </div>
-      <div className="absolute -top-20 -left-20 w-80 h-80 bg-cyberpunk-accent-pink/20 blur-3xl rounded-full" />
-      <div className="absolute top-1/3 right-1/3 w-64 h-64 bg-cyberpunk-accent-cyan/25 blur-3xl rounded-full" />
+      <div className="absolute -top-20 -left-20 w-80 h-80 bg-cyberpunk-accent-pink/20 blur-3xl rounded-full -z-10" />
+      <div className="absolute top-1/3 right-1/3 w-64 h-64 bg-cyberpunk-accent-cyan/25 blur-3xl rounded-full -z-10" />
 
       {/* === Content Container === */}
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">

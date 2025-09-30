@@ -149,10 +149,10 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
       {isMenuOpen && (
         <div className="lg:hidden">
           <div
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm"
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
             onClick={() => setIsMenuOpen(false)}
           />
-          <div className="fixed top-0 right-0 h-full w-72 sm:w-80 bg-cyberpunk-primary-bg border-l border-cyberpunk-accent-cyan/20 shadow-2xl">
+          <div className="fixed top-0 right-0 h-full w-72 sm:w-80 bg-cyberpunk-primary-bg border-l border-cyberpunk-accent-cyan/20 shadow-2xl z-50">
             <div className="flex items-center justify-between px-6 h-16 border-b border-cyberpunk-accent-cyan/20">
               <span className="text-base font-semibold text-white">Menu</span>
               <button
