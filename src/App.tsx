@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import ProductCatalog from './components/ProductCatalog';
@@ -44,6 +44,11 @@ function App() {
     navigateTo(page);
   };
 
+  // Type-safe wrapper for Login and UserAccount components
+  const handleStringNavigation = (page: string) => {
+    handleNavigation(page as Page);
+  };
+
   const renderPage = () => {
     switch (currentPage) {
       case 'home':
@@ -83,9 +88,9 @@ function App() {
           />
         ) : null;
       case 'login':
-        return <Login onNavigate={navigateTo} />;
+        return <Login onNavigate={handleStringNavigation} />;
       case 'account':
-        return <UserAccount onNavigate={navigateTo} />;
+        return <UserAccount onNavigate={handleStringNavigation} />;
       case 'about':
         return <About />;
       case 'contact':
