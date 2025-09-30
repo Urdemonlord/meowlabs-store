@@ -2,10 +2,11 @@ import React from 'react';
 import { ShoppingCart, Menu, User } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
+import { Page } from '../types/navigation';
 
 interface HeaderProps {
-  onNavigate: (page: string) => void;
-  currentPage: string;
+  onNavigate: (page: Page) => void;
+  currentPage: Page;
 }
 
 const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
@@ -13,15 +14,14 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
   const { user, isAuthenticated } = useAuth();
   const cartItemsCount = items.reduce((total, item) => total + item.quantity, 0);
 
-  const navigation = [
+  const navigation: { label: string; page: Page }[] = [
     { label: 'Home', page: 'home' },
-    { label: 'About', page: 'home' },
-    { label: 'Services', page: 'products' },
-    { label: 'Package', page: 'products' },
-    { label: 'For Students', page: 'products' },
-    { label: 'Portfolio', page: 'products' },
+    { label: 'Products', page: 'products' },
+    { label: 'Product Detail Page', page: 'product-detail' },
+    { label: 'Checkout', page: 'checkout' },
     { label: 'Blog', page: 'blog' },
-    { label: 'Contact', page: 'home' },
+    { label: 'About', page: 'about' },
+    { label: 'Contact', page: 'contact' },
   ];
 
   return (
@@ -100,7 +100,10 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentPage }) => {
               </button>
             )}
 
-            <button className="inline-flex items-center justify-center px-5 py-2 rounded-xl bg-cyberpunk-accent-cyan text-cyberpunk-dark font-semibold shadow-cyberpunk hover:shadow-cyberpunk-lg transition-transform hover:-translate-y-0.5">
+            <button
+              onClick={() => onNavigate('contact')}
+              className="inline-flex items-center justify-center px-5 py-2 rounded-xl bg-cyberpunk-accent-cyan text-cyberpunk-dark font-semibold shadow-cyberpunk hover:shadow-cyberpunk-lg transition-transform hover:-translate-y-0.5"
+            >
               Hubungi Kami
             </button>
 

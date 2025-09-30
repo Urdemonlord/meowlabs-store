@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Zap, MessageCircle } from 'lucide-react';
+import { ArrowRight, Sparkles, MessageCircle } from 'lucide-react';
 import CyberCat from './CyberCat';
 
 interface HeroProps {
@@ -22,17 +22,17 @@ const Hero: React.FC<HeroProps> = ({ onShopNow }) => {
           {/* Left column */}
           <div className="w-full lg:w-1/2 space-y-8">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyberpunk-secondary-bg/70 border border-cyberpunk-accent-cyan/30 text-cyberpunk-accent-cyan shadow-cyberpunk">
-              <Zap className="w-4 h-4" />
-              <span className="text-sm font-medium uppercase tracking-widest">Digital Agency</span>
+              <Sparkles className="w-4 h-4" />
+              <span className="text-sm font-medium uppercase tracking-widest">Digital Products &amp; Creative Tools</span>
             </div>
 
             <div className="space-y-4">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-white">
-                <span className="block">Jasa Pembuatan Website</span>
-                <span className="block text-cyberpunk-accent-cyan">Murah untuk UMKM &amp; Personal</span>
+                <span className="block">Solusi Digital</span>
+                <span className="block text-cyberpunk-accent-cyan">untuk Developer &amp; UMKM</span>
               </h1>
               <p className="text-lg sm:text-xl text-cyberpunk-text-secondary max-w-xl">
-                Layanan pembuatan website untuk UMKM, desa, hingga personal branding dengan desain profesional mulai dari 500 ribuan. Website responsif, SEO friendly, dan maintenance gratis selama 1 tahun.
+                Temukan koleksi produk digital berkualitas tinggi: ebook, template website, source code, dan merchandise eksklusif dari Meow Labs. Semua yang Anda butuhkan untuk mengembangkan bisnis dan skill teknologi.
               </p>
             </div>
 
@@ -41,26 +41,29 @@ const Hero: React.FC<HeroProps> = ({ onShopNow }) => {
                 onClick={onShopNow}
                 className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-cyberpunk-accent-cyan text-cyberpunk-dark text-lg font-semibold shadow-cyberpunk hover:shadow-cyberpunk-lg transition-transform hover:-translate-y-0.5"
               >
-                Konsultasi Gratis
+                Mulai Belanja
                 <ArrowRight className="ml-3 w-5 h-5" />
               </button>
-              <button className="inline-flex items-center justify-center px-8 py-4 rounded-xl border border-cyberpunk-text-secondary/30 text-white hover:border-cyberpunk-accent-cyan hover:text-cyberpunk-accent-cyan transition-colors">
-                Lihat Portofolio
+              <button
+                onClick={onShopNow}
+                className="inline-flex items-center justify-center px-8 py-4 rounded-xl border border-cyberpunk-accent-cyan/40 text-white hover:border-cyberpunk-accent-cyan hover:text-cyberpunk-accent-cyan transition-colors"
+              >
+                Lihat Katalog
               </button>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               <div className="p-5 rounded-2xl bg-cyberpunk-secondary-bg/70 border border-cyberpunk-accent-cyan/20">
-                <p className="text-3xl font-bold text-white">100+</p>
-                <p className="text-sm text-cyberpunk-text-secondary">Projects</p>
+                <p className="text-3xl font-bold text-white">40+</p>
+                <p className="text-sm text-cyberpunk-text-secondary">Produk Digital</p>
               </div>
               <div className="p-5 rounded-2xl bg-cyberpunk-secondary-bg/70 border border-cyberpunk-accent-cyan/20">
-                <p className="text-3xl font-bold text-white">100+</p>
-                <p className="text-sm text-cyberpunk-text-secondary">Happy Clients</p>
+                <p className="text-3xl font-bold text-white">10+</p>
+                <p className="text-sm text-cyberpunk-text-secondary">Kategori Kreatif</p>
               </div>
               <div className="p-5 rounded-2xl bg-cyberpunk-secondary-bg/70 border border-cyberpunk-accent-cyan/20">
-                <p className="text-3xl font-bold text-white">7+</p>
-                <p className="text-sm text-cyberpunk-text-secondary">Years Experience</p>
+                <p className="text-3xl font-bold text-white">Community</p>
+                <p className="text-sm text-cyberpunk-text-secondary">Developer &amp; UMKM</p>
               </div>
             </div>
           </div>

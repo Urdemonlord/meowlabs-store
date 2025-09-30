@@ -10,12 +10,14 @@ import BlogPost from './components/BlogPost';
 import Login from './components/Login';
 import UserAccount from './components/UserAccount';
 import Footer from './components/Footer';
+import About from './components/About';
+import Contact from './components/Contact';
 import { CartProvider } from './context/CartContext';
 import { AuthProvider } from './context/AuthContext';
 import { Product } from './types/product';
 import { BlogPost as BlogPostType } from './types/blog';
-
-type Page = 'home' | 'products' | 'product-detail' | 'cart' | 'checkout' | 'blog' | 'blog-post' | 'login' | 'account';
+import { Page } from './types/navigation';
+import { products } from './data/products';
 
 function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -32,13 +34,23 @@ function App() {
     }
   };
 
+  const handleNavigation = (page: Page) => {
+    if (page === 'product-detail') {
+      const productToShow = selectedProduct ?? products[0];
+      navigateTo('product-detail', productToShow);
+      return;
+    }
+
+    navigateTo(page);
+  };
+
   const renderPage = () => {
     switch (currentPage) {
       case 'home':
         return (
           <>
-            <Hero onShopNow={() => navigateTo('products')} />
-            <ProductCatalog 
+            <Hero onShopNow={() => handleNavigation('products')} />
+            <ProductCatalog
               onProductClick={(product) => navigateTo('product-detail', product)}
               limit={8}
             />
@@ -65,7 +77,7 @@ function App() {
         return <Blog onPostClick={(post) => navigateTo('blog-post', undefined, post)} />;
       case 'blog-post':
         return selectedBlogPost ? (
-          <BlogPost 
+          <BlogPost
             post={selectedBlogPost}
             onBack={() => navigateTo('blog')}
           />
@@ -74,8 +86,12 @@ function App() {
         return <Login onNavigate={navigateTo} />;
       case 'account':
         return <UserAccount onNavigate={navigateTo} />;
+      case 'about':
+        return <About />;
+      case 'contact':
+        return <Contact />;
       default:
-        return <Hero onShopNow={() => navigateTo('products')} />;
+        return <Hero onShopNow={() => handleNavigation('products')} />;
     }
   };
 
@@ -84,7 +100,7 @@ function App() {
       <CartProvider>
         <div className="min-h-screen bg-cyberpunk-primary-bg text-cyberpunk-text-secondary">
           <Header
-            onNavigate={navigateTo}
+            onNavigate={handleNavigation}
             currentPage={currentPage}
           />
           <main>
