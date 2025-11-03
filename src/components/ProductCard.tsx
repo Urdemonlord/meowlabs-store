@@ -2,7 +2,6 @@ import React from 'react';
 import { ShoppingCart, Download, Star, Palette } from 'lucide-react';
 import { Product } from '../types/product';
 import { useCart } from '../context/CartContext';
-import { useAuth }  from '../context/AuthContext';
 
 interface ProductCardProps {
   product: Product;
@@ -11,7 +10,6 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product, onClick }) => {
   const { addToCart } = useCart();
-  const { isAuthenticated } = useAuth();
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('id-ID', {
@@ -44,11 +42,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onClick }) => {
   const handleAddToCart = (e: React.MouseEvent) => {
     e.stopPropagation();
     addToCart(product);
-    if (!isAuthenticated) {
-      alert('Silahkan login terlebih dahulu untuk menambahkan ke keranjang.');
-      return;
-    }
-  addToCart(product);
   };
 
   return (
