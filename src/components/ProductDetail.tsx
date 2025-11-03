@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import { ArrowLeft, ShoppingCart, Download, Star, Check, Shield, Zap, Palette } from 'lucide-react';
 import { Product } from '../types/product';
 import { useCart } from '../context/CartContext';
-import { useAuth } from '../context/AuthContext';
-// import { products } from '../data/products';
-
 
 interface ProductDetailProps {
   product: Product;
@@ -13,7 +10,6 @@ interface ProductDetailProps {
 
 const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBackToProducts }) => {
   const { addToCart } = useCart();
-  const { isAuthenticated } = useAuth();
   const [selectedImage, setSelectedImage] = useState(product.image);
   const [selectedOptions, setSelectedOptions] = useState<{
     size?: string;
@@ -40,11 +36,6 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onBackToProducts
   };
 
   const handleAddToCart = () => {
-    addToCart(product, selectedOptions);
-    if (!isAuthenticated) {
-      alert('Silahkan login terlebih dahulu untuk menambahkan ke keranjang.');
-      return;
-    }
     addToCart(product, selectedOptions);
   };
 

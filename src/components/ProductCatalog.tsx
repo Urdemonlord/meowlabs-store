@@ -125,12 +125,12 @@ const ProductCatalog: React.FC<ProductCatalogProps> = ({ onProductClick, limit }
         {/* View All Button for Home Page */}
         {isHomePage && (
           <div className="text-center mt-12">
-               <button
-      onClick={() => window.location.assign('/products')}
-      className="inline-flex items-center px-8 py-3 border border-cyberpunk-accent-cyan text-cyberpunk-accent-cyan font-semibold rounded-xl hover:bg-cyberpunk-accent-cyan hover:text-cyberpunk-primary-bg transition-colors"
-    >
-      Lihat Semua Produk
-    </button>
+            <button 
+              onClick={() => onProductClick(products[0])} // This would navigate to products page
+              className="inline-flex items-center px-8 py-3 border border-cyberpunk-accent-cyan text-cyberpunk-accent-cyan font-semibold rounded-xl hover:bg-cyberpunk-accent-cyan hover:text-cyberpunk-primary-bg transition-colors"
+            >
+              Lihat Semua Produk
+            </button>
           </div>
         )}
       </div>

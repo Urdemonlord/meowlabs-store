@@ -1,5 +1,4 @@
-// 🟦 FRONTEND: src/pages/Login.tsx
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import { Mail, Lock, Eye, EyeOff, ArrowLeft } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
@@ -7,10 +6,8 @@ interface LoginProps {
   onNavigate: (page: string) => void;
 }
 
-const MIN_PASS = 6;
-
 const Login: React.FC<LoginProps> = ({ onNavigate }) => {
-  const { login, register, isLoading, loginWithProvider, lastError } = useAuth();
+  const { login, register, isLoading } = useAuth();
   const [isLoginMode, setIsLoginMode] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
@@ -21,25 +18,28 @@ const Login: React.FC<LoginProps> = ({ onNavigate }) => {
   });
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
-  const isFormEmpty = useMemo(() => {
-    const baseEmpty = !formData.email || !formData.password;
-    if (isLoginMode) return baseEmpty;
-    return baseEmpty || !formData.name || !formData.confirmPassword;
-  }, [formData, isLoginMode]);
-
   const validateForm = () => {
     const newErrors: { [key: string]: string } = {};
-    const email = formData.email.trim();
 
-    if (!email) newErrors.email = 'Email wajib diisi';
-    else if (!/\S+@\S+\.\S+/.test(email)) newErrors.email = 'Format email tidak valid';
+    if (!formData.email) {
+      newErrors.email = 'Email wajib diisi';
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Format email tidak valid';
+    }
 
-    if (!formData.password) newErrors.password = 'Password wajib diisi';
-    else if (formData.password.length < MIN_PASS) newErrors.password = `Password minimal ${MIN_PASS} karakter`;
+    if (!formData.password) {
+      newErrors.password = 'Password wajib diisi';
+    } else if (formData.password.length < 6) {
+      newErrors.password = 'Password minimal 6 karakter';
+    }
 
     if (!isLoginMode) {
-      if (!formData.name.trim()) newErrors.name = 'Nama wajib diisi';
-      if (formData.password !== formData.confirmPassword) newErrors.confirmPassword = 'Konfirmasi password tidak cocok';
+      if (!formData.name) {
+        newErrors.name = 'Nama wajib diisi';
+      }
+      if (formData.password !== formData.confirmPassword) {
+        newErrors.confirmPassword = 'Konfirmasi password tidak cocok';
+      }
     }
 
     setErrors(newErrors);
@@ -48,24 +48,26 @@ const Login: React.FC<LoginProps> = ({ onNavigate }) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
     if (!validateForm()) return;
 
     try {
       if (isLoginMode) {
-        await login(formData.email.trim(), formData.password);
+        await login(formData.email, formData.password);
       } else {
-        await register(formData.name.trim(), formData.email.trim(), formData.password);
+        await register(formData.name, formData.email, formData.password);
       }
       onNavigate('account');
-    } catch {
-      // detail error ditangani oleh lastError dari AuthContext
+    } catch (error) {
       setErrors({ general: 'Terjadi kesalahan. Silakan coba lagi.' });
     }
   };
 
   const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-    if (errors[field]) setErrors(prev => ({ ...prev, [field]: '' }));
+    setFormData({ ...formData, [field]: value });
+    if (errors[field]) {
+      setErrors({ ...errors, [field]: '' });
+    }
   };
 
   return (
@@ -91,18 +93,19 @@ const Login: React.FC<LoginProps> = ({ onNavigate }) => {
             {isLoginMode ? 'Masuk ke Akun' : 'Buat Akun Baru'}
           </h2>
           <p className="mt-2 text-cyberpunk-text-secondary">
-            {isLoginMode
+            {isLoginMode 
               ? 'Akses produk digital dan riwayat pembelian Anda'
-              : 'Bergabung dengan komunitas MeowLabs sekarang'}
+              : 'Bergabung dengan komunitas MeowLabs sekarang'
+            }
           </p>
         </div>
 
         {/* Form */}
         <div className="bg-gradient-to-b from-cyberpunk-secondary-bg/60 to-cyberpunk-primary-bg/60 rounded-2xl p-8 border border-cyberpunk-accent-cyan/20">
-          <form onSubmit={handleSubmit} className="space-y-6" aria-busy={isLoading}>
-            {(errors.general || lastError) && (
-              <div className="bg-red-500/10 border border-red-500/30 text-red-400 px-4 py-3 rounded-xl text-sm" role="alert" aria-live="assertive">
-                {errors.general || lastError}
+          <form onSubmit={handleSubmit} className="space-y-6">
+            {errors.general && (
+              <div className="bg-red-500/10 border border-red-500/30 text-red-400 px-4 py-3 rounded-xl text-sm">
+                {errors.general}
               </div>
             )}
 
@@ -116,12 +119,15 @@ const Login: React.FC<LoginProps> = ({ onNavigate }) => {
                   value={formData.name}
                   onChange={(e) => handleInputChange('name', e.target.value)}
                   className={`w-full px-4 py-3 border rounded-xl bg-cyberpunk-secondary-bg text-white placeholder-cyberpunk-text-secondary/70 focus:outline-none focus:ring-2 transition-colors ${
-                    errors.name ? 'border-red-500 focus:ring-red-500' : 'border-cyberpunk-accent-cyan/30 focus:ring-cyberpunk-accent-cyan'
+                    errors.name 
+                      ? 'border-red-500 focus:ring-red-500' 
+                      : 'border-cyberpunk-accent-cyan/30 focus:ring-cyberpunk-accent-cyan'
                   }`}
                   placeholder="Masukkan nama lengkap"
-                  aria-invalid={!!errors.name}
                 />
-                {errors.name && <p className="mt-1 text-sm text-red-400">{errors.name}</p>}
+                {errors.name && (
+                  <p className="mt-1 text-sm text-red-400">{errors.name}</p>
+                )}
               </div>
             )}
 
@@ -138,14 +144,16 @@ const Login: React.FC<LoginProps> = ({ onNavigate }) => {
                   value={formData.email}
                   onChange={(e) => handleInputChange('email', e.target.value)}
                   className={`w-full pl-10 pr-4 py-3 border rounded-xl bg-cyberpunk-secondary-bg text-white placeholder-cyberpunk-text-secondary/70 focus:outline-none focus:ring-2 transition-colors ${
-                    errors.email ? 'border-red-500 focus:ring-red-500' : 'border-cyberpunk-accent-cyan/30 focus:ring-cyberpunk-accent-cyan'
+                    errors.email 
+                      ? 'border-red-500 focus:ring-red-500' 
+                      : 'border-cyberpunk-accent-cyan/30 focus:ring-cyberpunk-accent-cyan'
                   }`}
                   placeholder="email@example.com"
-                  aria-invalid={!!errors.email}
-                  autoComplete="email"
                 />
               </div>
-              {errors.email && <p className="mt-1 text-sm text-red-400">{errors.email}</p>}
+              {errors.email && (
+                <p className="mt-1 text-sm text-red-400">{errors.email}</p>
+              )}
             </div>
 
             <div>
@@ -161,17 +169,16 @@ const Login: React.FC<LoginProps> = ({ onNavigate }) => {
                   value={formData.password}
                   onChange={(e) => handleInputChange('password', e.target.value)}
                   className={`w-full pl-10 pr-12 py-3 border rounded-xl bg-cyberpunk-secondary-bg text-white placeholder-cyberpunk-text-secondary/70 focus:outline-none focus:ring-2 transition-colors ${
-                    errors.password ? 'border-red-500 focus:ring-red-500' : 'border-cyberpunk-accent-cyan/30 focus:ring-cyberpunk-accent-cyan'
+                    errors.password 
+                      ? 'border-red-500 focus:ring-red-500' 
+                      : 'border-cyberpunk-accent-cyan/30 focus:ring-cyberpunk-accent-cyan'
                   }`}
                   placeholder="Masukkan password"
-                  aria-invalid={!!errors.password}
-                  autoComplete={isLoginMode ? 'current-password' : 'new-password'}
                 />
                 <button
                   type="button"
-                  onClick={() => setShowPassword(s => !s)}
+                  onClick={() => setShowPassword(!showPassword)}
                   className="absolute inset-y-0 right-0 pr-3 flex items-center"
-                  aria-label={showPassword ? 'Sembunyikan password' : 'Tampilkan password'}
                 >
                   {showPassword ? (
                     <EyeOff className="h-5 w-5 text-cyberpunk-text-secondary hover:text-cyberpunk-text-secondary" />
@@ -180,7 +187,9 @@ const Login: React.FC<LoginProps> = ({ onNavigate }) => {
                   )}
                 </button>
               </div>
-              {errors.password && <p className="mt-1 text-sm text-red-400">{errors.password}</p>}
+              {errors.password && (
+                <p className="mt-1 text-sm text-red-400">{errors.password}</p>
+              )}
             </div>
 
             {!isLoginMode && (
@@ -197,20 +206,22 @@ const Login: React.FC<LoginProps> = ({ onNavigate }) => {
                     value={formData.confirmPassword}
                     onChange={(e) => handleInputChange('confirmPassword', e.target.value)}
                     className={`w-full pl-10 pr-4 py-3 border rounded-xl bg-cyberpunk-secondary-bg text-white placeholder-cyberpunk-text-secondary/70 focus:outline-none focus:ring-2 transition-colors ${
-                      errors.confirmPassword ? 'border-red-500 focus:ring-red-500' : 'border-cyberpunk-accent-cyan/30 focus:ring-cyberpunk-accent-cyan'
+                      errors.confirmPassword 
+                        ? 'border-red-500 focus:ring-red-500' 
+                        : 'border-cyberpunk-accent-cyan/30 focus:ring-cyberpunk-accent-cyan'
                     }`}
                     placeholder="Konfirmasi password"
-                    aria-invalid={!!errors.confirmPassword}
-                    autoComplete="new-password"
                   />
                 </div>
-                {errors.confirmPassword && <p className="mt-1 text-sm text-red-400">{errors.confirmPassword}</p>}
+                {errors.confirmPassword && (
+                  <p className="mt-1 text-sm text-red-400">{errors.confirmPassword}</p>
+                )}
               </div>
             )}
 
             <button
               type="submit"
-              disabled={isLoading || isFormEmpty}
+              disabled={isLoading}
               className="w-full flex items-center justify-center px-4 py-3 bg-gradient-to-r from-cyberpunk-accent-cyan to-cyberpunk-accent-pink text-cyberpunk-primary-bg font-semibold rounded-xl hover:from-cyberpunk-accent-cyan/90 hover:to-cyberpunk-accent-pink/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoading ? (
@@ -253,11 +264,7 @@ const Login: React.FC<LoginProps> = ({ onNavigate }) => {
             </div>
 
             <div className="mt-6 grid grid-cols-2 gap-3">
-              <button
-                onClick={() => loginWithProvider?.('google')}
-                disabled={isLoading}
-                className="w-full inline-flex justify-center py-3 px-4 border border-cyberpunk-accent-cyan/30 rounded-xl bg-cyberpunk-secondary-bg text-sm font-medium text-cyberpunk-text-secondary hover:bg-cyberpunk-secondary-bg/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              >
+              <button className="w-full inline-flex justify-center py-3 px-4 border border-cyberpunk-accent-cyan/30 rounded-xl bg-cyberpunk-secondary-bg text-sm font-medium text-cyberpunk-text-secondary hover:bg-cyberpunk-secondary-bg/80 transition-colors">
                 <svg className="w-5 h-5" viewBox="0 0 24 24">
                   <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
                   <path fill="currentColor" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -267,11 +274,7 @@ const Login: React.FC<LoginProps> = ({ onNavigate }) => {
                 <span className="ml-2">Google</span>
               </button>
 
-              <button
-                onClick={() => loginWithProvider?.('facebook')}
-                disabled={isLoading}
-                className="w-full inline-flex justify-center py-3 px-4 border border-cyberpunk-accent-cyan/30 rounded-xl bg-cyberpunk-secondary-bg text-sm font-medium text-cyberpunk-text-secondary hover:bg-cyberpunk-secondary-bg/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              >
+              <button className="w-full inline-flex justify-center py-3 px-4 border border-cyberpunk-accent-cyan/30 rounded-xl bg-cyberpunk-secondary-bg text-sm font-medium text-cyberpunk-text-secondary hover:bg-cyberpunk-secondary-bg/80 transition-colors">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                 </svg>
